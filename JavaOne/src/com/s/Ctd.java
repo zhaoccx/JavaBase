@@ -2,6 +2,6 @@ package com.s;
 
 public class Ctd {
 	public static void main(String[] args) {
-
+		System.out.println();
 	}
 }
