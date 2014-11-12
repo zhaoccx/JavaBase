@@ -1,27 +1,29 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Test {
 
 	public static void main(String[] args) {
 		// 简单认识正则表达式
-		p("a2c".matches("..."));
-		p("a8729a".replaceAll("\\d", "-"));
-		Pattern p = Pattern.compile("[a-z]{3}");
-		Matcher m = p.matcher("fgh");
-		p(m.matches());
-		p("fgha".matches("[a-z]{3}"));
+		// p("a2c".matches("..."));
+		// p("a8729a".replaceAll("\\d", "-"));
+		// Pattern p = Pattern.compile("[a-z]{3}");
+		// Matcher m = p.matcher("fghtytyytytytyt");
+		// while (m.find()) {
+		// p(m.group());
+		// }
+		// p("fgha".matches("[a-z]{3}"));
 
-		// ������ʶ. * + ?
-		/*
-		 * p("a".matches(".")); p("aa".matches("aa")); p("aaaa".matches("a*"));
-		 * p("aaaa".matches("a+")); p("".matches("a*"));
-		 * p("aaaa".matches("a?")); p("".matches("a?")); p("a".matches("a?"));
-		 * p("214523145234532".matches("\\d{3,100}"));
-		 * p("192.168.0.aaa".matches(
-		 * "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"));
-		 * p("192".matches("[0-2][0-9][0-9]"));
-		 */
+		// 初步认识. * + ?
+
+		// p("a".matches("."));
+		// p("aa".matches("aa"));
+		// p("aaaa".matches("a*"));
+		p("aaaa".matches("a+"));
+		p("".matches("a*"));
+		p("aaaa".matches("a?"));
+		// p("".matches("a?"));
+		// p("a".matches("a?"));
+		// p("214523145234532".matches("\\d{3,100}"));
+		// p("192.168.0.aaa".matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"));
+		// p("192".matches("[0-2][0-9][0-9]"));
 
 		// ��Χ
 		/*
@@ -106,11 +108,13 @@ public class Test {
 
 		// flags�ļ�д
 		// Pattern p = Pattern.compile("java", Pattern.CASE_INSENSITIVE);
-		p("Java".matches("(?i)(java)"));
+		// p("Java".matches("(?i)(java)"));
 	}
 
 	public static void p(Object o) {
 		System.out.println(o);
+		System.out.println("**********************");
+
 	}
 
 }
