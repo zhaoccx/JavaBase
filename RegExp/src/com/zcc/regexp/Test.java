@@ -1,3 +1,7 @@
+package com.zcc.regexp;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Test {
 
 	private static int count = 1;
@@ -47,10 +51,9 @@ public class Test {
 		// p("a".matches("\\p{Lower}"));
 
 		// boundary
-
-		p("hello sir".matches("^h.*"));
-		p("hello sir".matches(".*ir$"));
-		p("hello sir".matches("^h[a-z]{1,3}o\\b.*"));
+		// p("hello sir".matches("^h.*"));
+		// p("hello sir".matches(".*ir$"));
+		// p("hello sir".matches("^h[a-z]{1,3}o\\b.*"));
 		// p("hellosir".matches("^h[a-z]{1,3}o\\b.*")); // whilte lines
 		// p(" \n".matches("^[\\s&&[^\\n]]*\\n$"));
 		//
@@ -75,7 +78,8 @@ public class Test {
 		// p(m2.start() + "-" + m2.end());
 		// p(m2.find());
 		// p(m2.start() + "-" + m2.end());
-		// p(m2.find()); // p(m.start() + "-" + m.end());
+		// p(m2.find());
+		// p(m.start() + "-" + m.end());
 		// p(m2.lookingAt());
 		// p(m2.lookingAt());
 		// p(m2.lookingAt());
@@ -101,12 +105,12 @@ public class Test {
 
 		// group
 
-		// Pattern p4 = Pattern.compile("(\\d{3,5})([a-z]{2})");
-		// String s2 = "123aa-34345bb-234cc-00";
-		// Matcher m4 = p4.matcher(s2);
-		// while (m4.find()) {
-		// p(m4.group());
-		// }
+		Pattern p4 = Pattern.compile("(\\d{3,5})([a-z]{2})");
+		String s2 = "123aa-34345bb-234cc-00";
+		Matcher m4 = p4.matcher(s2);
+		while (m4.find()) {
+			p(m4.group());
+		}
 
 		// qulifiers
 
