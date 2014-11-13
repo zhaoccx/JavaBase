@@ -134,7 +134,6 @@ public class Test {
 		// Matcher m7 = p7.matcher(s7);
 		// p(m7.matches());
 
-		
 		// flags的简写
 		// Pattern p8 = Pattern.compile("java", Pattern.CASE_INSENSITIVE);
 		// p("Java".matches("(?i)(java)"));
@@ -142,6 +141,7 @@ public class Test {
 
 	public static void p(Object o) {
 		System.out.println(o);
+
 		System.out.println("*****************" + count++);
 	}
 
