@@ -8,7 +8,6 @@ public class Test {
 		// p("abc".matches("..."));
 		// p("a8729a".replaceAll("\\d", "-"));
 		// Pattern p = Pattern.compile("[a-z]{3}");
-
 		// Matcher m = p.matcher("fgh");
 		// p(m.matches());
 		// p("fgha".matches("[a-z]{3}"));
@@ -145,5 +144,4 @@ public class Test {
 
 		System.out.println("*****************" + count++);
 	}
-
 }
