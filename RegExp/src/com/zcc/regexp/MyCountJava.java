@@ -15,6 +15,7 @@ public class MyCountJava {
 		Pattern p = Pattern.compile("[a-z]{3}");
 		Matcher m = p.matcher("fgh");
 		p(m.matches());
+
 		p("fgha".matches("[a-z]{3}"));
 
 		// 初步认识. * + ?
