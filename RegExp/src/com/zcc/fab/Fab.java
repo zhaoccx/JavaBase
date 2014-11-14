@@ -2,7 +2,11 @@ package com.zcc.fab;
 
 public class Fab {
 	public static void main(String[] arg) {
-		System.out.println(f(40));
+		System.out.println(System.currentTimeMillis());
+		System.out.println(f(500));
+		System.out.println(System.currentTimeMillis());
+		System.out.println(rcv(40));
+		System.out.println(System.currentTimeMillis());
 	}
 
 	public static long f(int index) {
@@ -21,5 +25,14 @@ public class Fab {
 		}
 
 		return fall;
+	}
+
+	public static long rcv(int index) {
+
+		if (index == 1 || index == 2) {
+			return 1;
+
+		}
+		return rcv(index - 1) + rcv(index - 2);
 	}
 }
