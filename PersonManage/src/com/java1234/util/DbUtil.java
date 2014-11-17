@@ -33,7 +33,7 @@ public class DbUtil {
 			e.printStackTrace();
 		} finally {
 			try {
-				dbUtil.closeCon(con); 
+				dbUtil.closeCon(con);
 				System.out.println("关闭连接");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
