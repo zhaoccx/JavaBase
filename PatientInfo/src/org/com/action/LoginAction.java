@@ -13,12 +13,16 @@ import org.com.util.StringUtil;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport implements ServletRequestAware{
-	
+public class LoginAction extends ActionSupport implements ServletRequestAware {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private User user;
 	private String error;
 	private String imageCode;
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -34,7 +38,6 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 	public void setError(String error) {
 		this.error = error;
 	}
-	
 
 	public String getImageCode() {
 		return imageCode;
@@ -44,47 +47,46 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		this.imageCode = imageCode;
 	}
 
-	DbUtil dbUtil=new DbUtil();
-	UserDao userDao=new UserDao();
+	DbUtil dbUtil = new DbUtil();
+	UserDao userDao = new UserDao();
 	HttpServletRequest request;
-	
-	
+
 	@Override
 	public String execute() throws Exception {
 		// 获取Session
-		HttpSession session=request.getSession();
-		if(StringUtil.isEmpty(user.getUserName())||StringUtil.isEmpty(user.getPassword())){
-			error="用户名或密码为空！";
+		HttpSession session = request.getSession();
+		if (StringUtil.isEmpty(user.getUserName()) || StringUtil.isEmpty(user.getPassword())) {
+			error = "用户名或密码为空！";
 			return ERROR;
 		}
-		if(StringUtil.isEmpty(imageCode)){
-			error="验证码为空！";
+		if (StringUtil.isEmpty(imageCode)) {
+			error = "验证码为空！";
 			return ERROR;
 		}
-		if(!imageCode.equals(session.getAttribute("sRand"))){
-			error="验证码错误！";
+		if (!imageCode.equals(session.getAttribute("sRand"))) {
+			error = "验证码错误！";
 			return ERROR;
 		}
-		Connection con=null;
+		Connection con = null;
 		try {
-			con=dbUtil.getCon();
-			User currentUser=userDao.login(con, user);
-			if(currentUser==null){
-				error="用户名或密码错误！";
+			con = dbUtil.getCon();
+			User currentUser = userDao.login(con, user);
+			if (currentUser == null) {
+				error = "用户名或密码错误！";
 				return ERROR;
-			}else{
+			} else {
 				session.setAttribute("currentUser", currentUser);
-				if(currentUser.getRole()==0){
+				if (currentUser.getRole() == 0) {
 					return "admin";
-				}else{
+				} else {
 					return "user";
 				}
-		
+
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally {
 			try {
 				dbUtil.closeCon(con);
 			} catch (Exception e) {
@@ -94,16 +96,17 @@ public class LoginAction extends ActionSupport implements ServletRequestAware{
 		}
 		return ERROR;
 	}
-	
+
 	public String logout() throws Exception {
-		//获取session
-		HttpSession session=request.getSession();
+		// 获取session
+		HttpSession session = request.getSession();
 		session.removeAttribute("currentUser");
 		return "logout";
 	}
+
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		this.request=request;
+		this.request = request;
 	}
 }

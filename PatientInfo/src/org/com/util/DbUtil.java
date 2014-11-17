@@ -7,7 +7,7 @@ public class DbUtil {
 
 	private String dbUrl = "jdbc:mysql://localhost:3306/db_patient?useUnicode=true&characterEncoding=utf8";
 	private String dbUserName = "root";
-	private String dbPassword = "5487102";
+	private String dbPassword = "longrise";
 	private String jdbcName = "com.mysql.jdbc.Driver";
 
 	/**
@@ -38,7 +38,7 @@ public class DbUtil {
 		DbUtil dbUtil = new DbUtil();
 		try {
 			dbUtil.getCon();
-			System.out.println("��ݿ����ӳɹ�");
+			System.out.println("数据库连接成功。");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
