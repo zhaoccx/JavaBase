@@ -7,7 +7,7 @@ public class DbUtil {
 
 	private String url = "jdbc:mysql://localhost:3306/db_personmanage";
 	private String user = "root";
-	private String password = "5487102";
+	private String password = "longrise";
 	private String driver = "com.mysql.jdbc.Driver";
 
 	public Connection getCon() throws Exception {
