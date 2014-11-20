@@ -1,0 +1,235 @@
+<DIV onresize=LEAPLG.bt(); class="lg_p2_bt lg_p2s_info" moduleversion="2" moduletype="info" modulecn="服务记录表结算条件" module="dsassservicecordpay">
+	<DIV class="lg_p2_bt_top " style="OVERFLOW: auto; HEIGHT: 624px; POSITION: relative; WIDTH: 100%">
+		<DIV class=lginfopanel>
+			<TABLE class=lg3table style="WIDTH: 100%" cellSpacing=0 cellPadding=0 border=1 istexttable="1">
+				<CAPTION>
+					<FONT style="FONT-SIZE: 10px">●服务记录表结算条件</FONT>
+				</CAPTION>
+				<TBODY>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">创建时间</TD>
+						<TD class=lg3tablect>
+							<DIV class="date lginfoct" ct="date" mdcn="创建时间" mdtype="datetime" bt="datetime" md="createtime">
+								<INPUT class=date_y maxLength=4 ctf="date_1">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_2">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_3">
+								<A>&nbsp;</A>
+								<INPUT class=date_i maxLength=2 ctf="date_4">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_5">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_6">
+								<DIV class=date_img ctf="date_show">
+								</DIV>
+							</DIV>
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">是否结算</TD>
+						<TD class=lg3tablect>
+							<DIV class="select lginfoct" ct="select" mdcn="是否结算" mdtype="select" bt="select" md="ispay" code="dsassboolean">
+								<DIV class="lg_p_lr_right select_drop selectdropout" ctf="select_drop">
+								</DIV>
+								<DIV class="lg_p_lr_fill input_fill">
+									<DIV class="lg_p_lr_fill_c input_fill_c">
+										<INPUT class="selectbtn ellipsis " type=button ctf="selectbtn">
+									</DIV>
+								</DIV>
+								<DIV class=select_items style="WIDTH: 100%" ctf="select_items" sizset="0">
+									<DIV>
+										<A href="javascript:" ctf="select_item" value="">&nbsp;</A>
+									</DIV>
+									<DIV>
+										<A href="javascript:" ctf="select_item" value="1">是</A>
+									</DIV>
+									<DIV>
+										<A href="javascript:" ctf="select_item" value="0">否</A>
+									</DIV>
+								</DIV>
+							</DIV>
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">修改人</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:100" ht="input" mdcn="修改人" mdtype="text" bt="text" md="updater">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">修改时间</TD>
+						<TD class=lg3tablect>
+							<DIV class="date lginfoct" ct="date" mdcn="修改时间" mdtype="datetime" bt="datetime" md="updatetime">
+								<INPUT class=date_y maxLength=4 ctf="date_1">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_2">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_3">
+								<A>&nbsp;</A>
+								<INPUT class=date_i maxLength=2 ctf="date_4">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_5">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_6">
+								<DIV class=date_img ctf="date_show">
+								</DIV>
+							</DIV>
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">事项名称</TD>
+						<TD class=lg3tablect>
+							<DIV class="date lginfoct" ct="date" mdtype="datetime" bt="datetime" md="mdcn=事项名称">
+								<INPUT class=date_y maxLength=4 ctf="date_1">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_2">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_3">
+								<A>&nbsp;</A>
+								<INPUT class=date_i maxLength=2 ctf="date_4">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_5">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_6">
+								<DIV class=date_img ctf="date_show">
+								</DIV>
+							</DIV>
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">流水号</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:16,notnull:true" ht="input" mdcn="流水号" mdtype="text" bt="text" md="id">
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">系统编码</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="isint:true,maxlen:7" ht="input" mdcn="系统编码" mdtype="integer" bt="text" md="cloudappid">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">创建人</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:100" ht="input" mdcn="创建人" mdtype="text" bt="text" md="creator">
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">开始时间</TD>
+						<TD class=lg3tablect>
+							<DIV class="date lginfoct" ct="date" mdcn="开始时间" mdtype="datetime" bt="datetime" md="starttime">
+								<INPUT class=date_y maxLength=4 ctf="date_1">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_2">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_3">
+								<A>&nbsp;</A>
+								<INPUT class=date_i maxLength=2 ctf="date_4">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_5">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_6">
+								<DIV class=date_img ctf="date_show">
+								</DIV>
+							</DIV>
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">身份证号</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:10" ht="input" mdcn="身份证号" mdtype="text" bt="text" md="cardno">
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">流程实例ID</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:32" ht="input" mdcn="流程实例ID" mdtype="text" bt="text" md="entryid">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">事项编号</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:100" ht="input" mdcn="事项编号" mdtype="text" bt="text" md="businessno">
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">结算总金额</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:100" ht="input" mdcn="结算总金额" mdtype="text" bt="text" md="paymoney">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">结束时间</TD>
+						<TD class=lg3tablect>
+							<DIV class="date lginfoct" ct="date" mdcn="结束时间" mdtype="datetime" bt="datetime" md="endtime">
+								<INPUT class=date_y maxLength=4 ctf="date_1">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_2">
+								<A>-</A>
+								<INPUT class=date_i maxLength=2 ctf="date_3">
+								<A>&nbsp;</A>
+								<INPUT class=date_i maxLength=2 ctf="date_4">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_5">
+								<A>:</A>
+								<INPUT class=date_i maxLength=2 ctf="date_6">
+								<DIV class=date_img ctf="date_show">
+								</DIV>
+							</DIV>
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">机构id</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:32" ht="input" mdcn="机构id" mdtype="text" bt="text" md="orgid">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">机构名称</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct ht="input" mdtype="text" bt="text" md="mdcn=机构名称">
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">残疾人姓名</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="maxlen:100" ht="input" mdcn="残疾人姓名" mdtype="text" bt="text" md="name">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">是否结暂存</TD>
+						<TD class=lg3tablect>
+							<DIV class="select lginfoct" ct="select" mdcn="是否结暂存" mdtype="select" bt="select" md="istemp" code="dsassboolean">
+								<DIV class="lg_p_lr_right select_drop selectdropout" ctf="select_drop">
+								</DIV>
+								<DIV class="lg_p_lr_fill input_fill">
+									<DIV class="lg_p_lr_fill_c input_fill_c">
+										<INPUT class="selectbtn ellipsis " type=button ctf="selectbtn">
+									</DIV>
+								</DIV>
+								<DIV class=select_items style="WIDTH: 100%" ctf="select_items" sizset="0">
+									<DIV>
+										<A href="javascript:" ctf="select_item" value="">&nbsp;</A>
+									</DIV>
+									<DIV>
+										<A href="javascript:" ctf="select_item" value="1">是</A>
+									</DIV>
+									<DIV>
+										<A href="javascript:" ctf="select_item" value="0">否</A>
+									</DIV>
+								</DIV>
+							</DIV>
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">暂存总金额</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="isnumber:true,precision:15,decimalplace:2" ht="input" mdcn="暂存总金额" mdtype="number" bt="text" md="tempmoney">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">确认总金额</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="isnumber:true" ht="input" mdtype="number" bt="text" md="mdcn=确认总金额">
+						</TD>
+					</TR>
+					<TR>
+						<TD class=lg3tabletext style="WIDTH: 85px">总金额</TD>
+						<TD class=lg3tablect>
+							<INPUT class=lginfoct check="isnumber:true,precision:15,decimalplace:2" ht="input" mdcn="总金额" mdtype="number" bt="text" md="allmoney">
+						</TD>
+						<TD class=lg3tabletext style="WIDTH: 85px">&nbsp;</TD>
+						<TD class=lg3tablect>&nbsp;</TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+		</DIV>
+	</DIV>
+	<DIV onresize=LEAPLG.bt_layout(); class=lg_p2_bt_bottom style="HEIGHT: 40px">
+		<DIV class=lginfobtnpanel>
+			<A class="lgimgbtn lgimg_ok" href="javascript:" ut="submit" ht="button" bindevents="click=innerInfoSubmit">确定</A>
+		</DIV>
+	</DIV>
+	<IMG onerror=LEAPLG.bt_img(0); style="DISPLAY: none" src="data:image:png,base64">
+</DIV>
