@@ -23,6 +23,6 @@ public class StaticImportTest {
 
 		System.out.println(sex.getNextSex());
 
-		Sex sex2 = Sex.THREE;
+		// Sex sex2 = Sex.THREE;
 	}
 }
