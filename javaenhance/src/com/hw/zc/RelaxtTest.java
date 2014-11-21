@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 public class RelaxtTest {
 	public static void main(String[] args) throws Exception {
 		Point ojbd = new Point();
+		@SuppressWarnings("rawtypes")
 		Class cls = ojbd.getClass();
 		Field[] fields = cls.getDeclaredFields();
 		for (Field field : fields) {
