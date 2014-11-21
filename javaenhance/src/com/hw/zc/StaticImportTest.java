@@ -12,7 +12,7 @@ import com.hw.zc.AutoBoxTest.WeekDay;
  * @author zhaocc
  *
  */
-public class StaticImportTest {
+public class StaticImportTest { 
 	public static void main(String[] args) {
 		System.out.println(max(3, 6));
 		System.out.println(abs(3 - 6));
