@@ -10,7 +10,7 @@ public class ProxyFactoryBean {
 
 	private Advice advice;
 	private Object target;
-	
+
 	public Advice getAdvice() {
 		return advice;
 	}
@@ -29,30 +29,27 @@ public class ProxyFactoryBean {
 
 	public Object getProxy() {
 		// TODO Auto-generated method stub
-		Object proxy3 = Proxy.newProxyInstance(
-				target.getClass().getClassLoader(),
-				/*new Class[]{Collection.class},*/
-				target.getClass().getInterfaces(),
-				new InvocationHandler(){
-				
-					public Object invoke(Object proxy, Method method, Object[] args)
-							throws Throwable {
+		Object proxy3 = Proxy.newProxyInstance(target.getClass().getClassLoader(),
+		/* new Class[]{Collection.class}, */
+		target.getClass().getInterfaces(), new InvocationHandler() {
 
-						/*long beginTime = System.currentTimeMillis();
-						Object retVal = method.invoke(target, args);
-						long endTime = System.currentTimeMillis();
-						System.out.println(method.getName() + " running time of " + (endTime - beginTime));
-						return retVal;*/
-						
+			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-						advice.beforeMethod(method);
-						Object retVal = method.invoke(target, args);
-						advice.afterMethod(method);
-						return retVal;						
-						
-					}
-				}
-				);
+				/*
+				 * long beginTime = System.currentTimeMillis(); Object retVal =
+				 * method.invoke(target, args); long endTime =
+				 * System.currentTimeMillis();
+				 * System.out.println(method.getName() + " running time of " +
+				 * (endTime - beginTime)); return retVal;
+				 */
+
+				advice.beforeMethod(method);
+				Object retVal = method.invoke(target, args);
+				advice.afterMethod(method);
+				return retVal;
+
+			}
+		});
 		return proxy3;
 	}
 

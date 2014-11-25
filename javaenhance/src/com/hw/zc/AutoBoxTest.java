@@ -1,6 +1,7 @@
 package com.hw.zc;
 
 public class AutoBoxTest {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Integer intdataInteger = 3;
 		System.out.println(intdataInteger + 12);
@@ -34,7 +35,7 @@ public class AutoBoxTest {
 	}
 
 	public enum Sex {
-		ONE{
+		ONE {
 			@Override
 			public Sex getNextSex() {
 

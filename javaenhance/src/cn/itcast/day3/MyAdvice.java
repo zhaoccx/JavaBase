@@ -4,9 +4,10 @@ import java.lang.reflect.Method;
 
 public class MyAdvice implements Advice {
 	long beginTime = 0;
+
 	public void afterMethod(Method method) {
 		// TODO Auto-generated method stub
-		System.out.println("´Ó´«ÖÇ²¥¿Í±ÏÒµÉÏ°àÀ²£¡");		
+		System.out.println("ï¿½Ó´ï¿½ï¿½Ç²ï¿½ï¿½Í±ï¿½Òµï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½");
 		long endTime = System.currentTimeMillis();
 		System.out.println(method.getName() + " running time of " + (endTime - beginTime));
 
@@ -14,7 +15,7 @@ public class MyAdvice implements Advice {
 
 	public void beforeMethod(Method method) {
 		// TODO Auto-generated method stub
-		System.out.println("µ½´«ÖÇ²¥¿ÍÀ´Ñ§Ï°À²£¡");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½");
 		beginTime = System.currentTimeMillis();
 	}
 
