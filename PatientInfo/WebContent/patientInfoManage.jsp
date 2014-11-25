@@ -189,7 +189,7 @@ function exportPatient(){
 				</tr>
 				<tr>
 					<td>所属用户：</td>
-					<td><select class="easyui-combobox"  id="userId" name="patient.userId" size="10" style="width: 155px" data-options="panelHeight:'auto',editable:false,valueField:'userId',textField:'userName',url:'patient!userNameComboList'"/>   </td>
+					<td><select class="easyui-combobox"  id="userId" name="patient.userId" size="10" style="width: 155px" data-options="panelHeight:'auto',editable:false,valueField:'userId',textField:'userName',url:'patient!userNameComboList'" > </select>  </td>
 					<td>联系电话：</td>
 					<td><input type="text" name="patient.tel" id="tel" class="easyui-validatebox" data-options="required:true"/></td>
 				
