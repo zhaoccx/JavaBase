@@ -13,10 +13,11 @@ import com.java1234.util.DbUtil;
 import com.java1234.util.StringUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
+@SuppressWarnings("serial")
 public class UserAction extends ActionSupport {
 	private User user;
 	private String error;
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -24,7 +25,7 @@ public class UserAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	public String getError() {
 		return error;
 	}
@@ -33,30 +34,31 @@ public class UserAction extends ActionSupport {
 		this.error = error;
 	}
 
-	DbUtil dbUtil=new DbUtil();
-	UserDao userDao=new UserDao();
+	DbUtil dbUtil = new DbUtil();
+	UserDao userDao = new UserDao();
+
 	@Override
 	public String execute() throws Exception {
-		HttpServletRequest request=ServletActionContext.getRequest();
-		HttpSession session=request.getSession();
-		if(StringUtil.isEmpty(user.getUserName())||StringUtil.isEmpty(user.getPassword())){
-			error="用户名或者密码为空！";
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		if (StringUtil.isEmpty(user.getUserName()) || StringUtil.isEmpty(user.getPassword())) {
+			error = "用户名或者密码为空！";
 			return ERROR;
 		}
-		Connection con=null;
-		try{
-			con=dbUtil.getCon();
-			User currentUser=userDao.login(con, user);
-			if(currentUser==null){
-				error="用户名或者密码错误！";
+		Connection con = null;
+		try {
+			con = dbUtil.getCon();
+			User currentUser = userDao.login(con, user);
+			if (currentUser == null) {
+				error = "用户名或者密码错误！";
 				return ERROR;
-			}else{
+			} else {
 				session.setAttribute("currentUser", currentUser);
 				return SUCCESS;
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 			try {
 				dbUtil.closeCon(con);
 			} catch (Exception e) {
@@ -64,5 +66,5 @@ public class UserAction extends ActionSupport {
 			}
 		}
 		return SUCCESS;
-	}	
+	}
 }
