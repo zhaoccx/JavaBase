@@ -7,17 +7,19 @@ import java.util.concurrent.Executors;
 public class ThreadLocalTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub
 		ExecutorService service = Executors.newFixedThreadPool(2);
-		Runnable runnable = new Runnable(){
+		Runnable runnable = new Runnable() {
 			A a = new A();
+
+			@Override
 			public void run() {
-				//MyData.x.set(new Random().nextInt(10000));
+				// MyData.x.set(new Random().nextInt(10000));
 				MyData.getMyDate().setY(new Random().nextInt(10000));
 				a.say();
 			}
 		};
-		
+
 		service.execute(runnable);
 		service.execute(runnable);
 		service.shutdown();
@@ -25,55 +27,67 @@ public class ThreadLocalTest {
 
 }
 
-class  MyData{
-	public static ThreadLocal x = new ThreadLocal(); 	
-	public static void set(Object value){
+class MyData {
+	@SuppressWarnings("rawtypes")
+	public static ThreadLocal x = new ThreadLocal();
+
+	@SuppressWarnings("unchecked")
+	public static void set(Object value) {
 		x.set(value);
 	}
-	public static Object get(){
+
+	public static Object get() {
 		return x.get();
 	}
-	
-	
+
+	@SuppressWarnings("rawtypes")
 	private static ThreadLocal data = new ThreadLocal();
-	
-	/*¶ÔÓÚ²»Í¬µÄÏß³ÌÀ´Ëµ£¬getMyDataÄÃµ½µÄ¶ÔÏó¶¼²»ÏàÍ¬£¬
-	 * ¶ÔÍ¬Ò»¸öÏß³ÌÀ´Ëµ£¬²»¹ÜgetMyData¶àÉÙ´ÎºÍÔÚÄÄÀïgetMyData£¬ÄÃµ½µÄ¶¼ÊÇÍ¬Ò»¸ö*/
-	public static MyData getMyDate(){
-		MyData myData = (MyData)data.get();
-		if(myData ==  null){
+
+	/*
+	 * ï¿½ï¿½ï¿½Ú²ï¿½Í¬ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½Ëµï¿½ï¿½getMyDataï¿½Ãµï¿½ï¿½Ä¶ï¿½ï¿½ó¶¼²ï¿½ï¿½ï¿½Í¬ï¿½ï¿½
+	 * ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½getMyDataï¿½ï¿½ï¿½Ù´Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½getMyDataï¿½ï¿½ï¿½Ãµï¿½ï¿½Ä¶ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½
+	 */
+	@SuppressWarnings("unchecked")
+	public static MyData getMyDate() {
+		MyData myData = (MyData) data.get();
+		if (myData == null) {
 			myData = new MyData();
 			data.set(myData);
 		}
 		return myData;
 	}
-	
 
-	private MyData(){}
+	private MyData() {
+	}
+
 	private Integer y;
-	public void setY(Integer y){
+
+	public void setY(Integer y) {
 		this.y = y;
 	}
-	public Integer getY(){
+
+	public Integer getY() {
 		return y;
 	}
 }
 
-class A{
-	public void say(){
-		//System.out.println("say " + Thread.currentThread().getName() + " geted " + MyData.x.get());
+class A {
+	public void say() {
+		// System.out.println("say " + Thread.currentThread().getName() +
+		// " geted " + MyData.x.get());
 		System.out.println("say " + Thread.currentThread().getName() + " geted " + MyData.getMyDate().getY());
-		
+
 		new B().sayHello();
 	}
 }
 
-class B{
+class B {
 
 	public void sayHello() {
-		//System.out.println("sayHello " +Thread.currentThread().getName() + " geted " + MyData.x.get());
+		// System.out.println("sayHello " +Thread.currentThread().getName() +
+		// " geted " + MyData.x.get());
 		System.out.println("sayHello " + Thread.currentThread().getName() + " geted " + MyData.getMyDate().getY());
-		
+
 	}
-	
+
 }

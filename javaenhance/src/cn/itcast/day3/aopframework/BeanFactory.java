@@ -8,7 +8,8 @@ import cn.itcast.day3.Advice;
 
 public class BeanFactory {
 	Properties props = new Properties();
-	public BeanFactory(InputStream ips){
+
+	public BeanFactory(InputStream ips) {
 		try {
 			props.load(ips);
 		} catch (IOException e) {
@@ -16,8 +17,9 @@ public class BeanFactory {
 			e.printStackTrace();
 		}
 	}
-	
-	public Object getBean(String name){
+
+	@SuppressWarnings("rawtypes")
+	public Object getBean(String name) {
 		String className = props.getProperty(name);
 		Object bean = null;
 		try {
@@ -26,12 +28,12 @@ public class BeanFactory {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		if(bean instanceof ProxyFactoryBean){
+		}
+		if (bean instanceof ProxyFactoryBean) {
 			Object proxy = null;
-			ProxyFactoryBean proxyFactoryBean = (ProxyFactoryBean)bean;
+			ProxyFactoryBean proxyFactoryBean = (ProxyFactoryBean) bean;
 			try {
-				Advice advice = (Advice)Class.forName(props.getProperty(name + ".advice")).newInstance();
+				Advice advice = (Advice) Class.forName(props.getProperty(name + ".advice")).newInstance();
 				Object target = Class.forName(props.getProperty(name + ".target")).newInstance();
 				proxyFactoryBean.setAdvice(advice);
 				proxyFactoryBean.setTarget(target);

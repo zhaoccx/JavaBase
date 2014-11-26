@@ -9,28 +9,29 @@ public class ThreadPoolTest {
 	 * @param args
 	 */
 	private static int count = 0;
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ExecutorService service = Executors.newFixedThreadPool(3);
-		//ExecutorService service = Executors.newCachedThreadPool();
-		
-		for(int i=0;i<10;i++){
-			//×ÐÏ¸Æ·Î¶runnable¶ÔÏó·Åµ½Ñ­»·ÀïÃæºÍÍâÃæµÄÇø±ð£¬ÎªÁËÈÃÃ¿¸ö¶ÔÏóÓÐ×Ô¼º¶ÀÁ¢µÄ±àºÅ
+		// ExecutorService service = Executors.newCachedThreadPool();
+
+		for (int i = 0; i < 10; i++) {
+			// ï¿½ï¿½Ï¸Æ·Î¶runnableï¿½ï¿½ï¿½ï¿½Åµï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½
 			count = i;
-			Runnable runnable = new Runnable(){
+			Runnable runnable = new Runnable() {
 				private int mySequence = count;
+
 				public void run() {
-					for(int i=0;i<5;i++){
+					for (int i = 0; i < 5; i++) {
 						try {
 							Thread.sleep(1000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						System.out.println(Thread.currentThread().getName() + 
-								" is serving " + mySequence + " task,loop of " + i);
+						System.out.println(Thread.currentThread().getName() + " is serving " + mySequence + " task,loop of " + i);
 					}
 				}
-				
+
 			};
 			service.execute(runnable);
 		}

@@ -1,6 +1,5 @@
 package com.hw.zc;
 
-
 public class VariableParmeterTest {
 
 	public static void main(String[] args) {

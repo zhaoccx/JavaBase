@@ -1,10 +1,11 @@
 package cn.itcast.day2;
 
-
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class ClassLoaderAttachment extends Date {
-	public String toString(){
+	@Override
+	public String toString() {
 		return "hello,itcast";
-	} 
+	}
 }

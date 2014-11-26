@@ -1,7 +1,6 @@
 package cn.itcast.day3.thread;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -10,41 +9,36 @@ public class CountdownLatchTest {
 	public static void main(String[] args) {
 		ExecutorService service = Executors.newCachedThreadPool();
 		final CountDownLatch cdOrder = new CountDownLatch(1);
-		final CountDownLatch cdAnswer = new CountDownLatch(3);		
-		for(int i=0;i<3;i++){
-			Runnable runnable = new Runnable(){
-					public void run(){
+		final CountDownLatch cdAnswer = new CountDownLatch(3);
+		for (int i = 0; i < 3; i++) {
+			Runnable runnable = new Runnable() {
+				@Override
+				public void run() {
 					try {
-						System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-								"Õý×¼±¸½ÓÊÜÃüÁî");						
+						System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + "ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 						cdOrder.await();
-						System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-						"ÒÑ½ÓÊÜÃüÁî");								
-						Thread.sleep((long)(Math.random()*10000));	
-						System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-								"»ØÓ¦ÃüÁî´¦Àí½á¹û");						
-						cdAnswer.countDown();						
+						System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + "ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+						Thread.sleep((long) (Math.random() * 10000));
+						System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + "ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½");
+						cdAnswer.countDown();
 					} catch (Exception e) {
 						e.printStackTrace();
-					}				
+					}
 				}
 			};
 			service.execute(runnable);
-		}		
+		}
 		try {
-			Thread.sleep((long)(Math.random()*10000));
-		
-			System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-					"¼´½«·¢²¼ÃüÁî");						
+			Thread.sleep((long) (Math.random() * 10000));
+
+			System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			cdOrder.countDown();
-			System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-			"ÒÑ·¢ËÍÃüÁî£¬ÕýÔÚµÈ´ý½á¹û");	
+			System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + "ï¿½Ñ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î£¬ï¿½ï¿½ï¿½ÚµÈ´ï¿½ï¿½ï¿½");
 			cdAnswer.await();
-			System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
-			"ÒÑÊÕµ½ËùÓÐÏìÓ¦½á¹û");	
+			System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + "ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½");
 		} catch (Exception e) {
 			e.printStackTrace();
-		}				
+		}
 		service.shutdown();
 
 	}

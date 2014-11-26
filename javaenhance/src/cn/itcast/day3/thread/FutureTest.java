@@ -2,7 +2,6 @@ package cn.itcast.day3.thread;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -13,65 +12,64 @@ public class FutureTest {
 	public static void main(String[] args) {
 
 		ExecutorService service = Executors.newSingleThreadExecutor();
-		class MyCallable implements Callable<String>{
+		class MyCallable implements Callable<String> {
 
+			@Override
 			public String call() throws Exception {
-				for(int i=0;i<10;i++)
-				{
+				for (int i = 0; i < 10; i++) {
 					Thread.sleep(1000);
-					System.out.println("calling " + i);					
+					System.out.println("calling " + i);
 				}
 
 				return "hello";
 			}
-			
-		}
-		//Future<String> future = service.submit(new MyCallable());
-		class MyCallable2<T> implements Callable<T>{
 
+		}
+		// Future<String> future = service.submit(new MyCallable());
+		@SuppressWarnings("unused")
+		class MyCallable2<T> implements Callable<T> {
+
+			@Override
 			public T call() throws Exception {
-				for(int i=0;i<10;i++)
-				{
+				for (int i = 0; i < 10; i++) {
 					Thread.sleep(1000);
-					System.out.println("calling " + i);					
+					System.out.println("calling " + i);
 				}
 				return null;
-			}	
-		}		
-		
-		Future<String> future = service.submit(new Callable<String>(){
+			}
+		}
+
+		Future<String> future = service.submit(new Callable<String>() {
+			@Override
 			public String call() throws Exception {
-				for(int i=0;i<10;i++)
-				{
+				for (int i = 0; i < 10; i++) {
 					Thread.sleep(1000);
-					System.out.println("calling " + i);					
+					System.out.println("calling " + i);
 				}
 				return "hello";
 			}
-			
+
 		});
-		
+
 		try {
-			//¼ÓÉÏÏÂÃæÕâ¾äÔòÔÝÍ£Ê§°Ü£¬»¹ÄÜ¿´µ½ÉÏÃæ´òÓ¡µÄcalling¡£
-			//Thread.sleep(2000);			
-			//future.cancel(false);
-			//System.out.println(future.isCancelled());
-			if(true)
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½callingï¿½ï¿½
+			// Thread.sleep(2000);
+			// future.cancel(false);
+			// System.out.println(future.isCancelled());
+			if (true)
 				System.out.println(future.get());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println("end!");
 		service.shutdown();
-		
-		CompletionService<String> ecs = new ExecutorCompletionService<String>(
-				Executors.newSingleThreadExecutor()				
-		);
-		for(int i=0;i<10;i++) {
+
+		CompletionService<String> ecs = new ExecutorCompletionService<String>(Executors.newSingleThreadExecutor());
+		for (int i = 0; i < 10; i++) {
 			ecs.submit(new MyCallable());
 		}
 		try {
-			for(int i=0;i<10;i++){
+			for (int i = 0; i < 10; i++) {
 				Future<String> future2 = ecs.take();
 				System.out.println(future2.get());
 			}

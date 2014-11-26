@@ -228,12 +228,12 @@
 					<td><input type="text" name="employee.position" id="position" class="easyui-validatebox" required="true" ></td>
 				</tr>
 				<tr>
-					<input type="text" name="employee.baseMoney" id="baseMoney" class="easyui-validatebox" hidden="true">
-					<input type="text" name="employee.overtime" id="overtime" class="easyui-validatebox" hidden="true" >
-					<input type="text" name="employee.age" id="age" class="easyui-validatebox" hidden="true">
-					<input type="text" name="employee.check1" id="check1" class="easyui-validatebox" hidden="true">
-					<input type="text" name="employee.absent" id="absent" class="easyui-validatebox" hidden="true">
-					<input type="text" name="employee.safety" id="safety" class="easyui-validatebox" hidden="true">
+					<td><input type="text" name="employee.baseMoney" id="baseMoney" class="easyui-validatebox" hidden="true" /></td>
+					<td><input type="text" name="employee.overtime" id="overtime" class="easyui-validatebox" hidden="true" />
+					<input type="text" name="employee.age" id="age" class="easyui-validatebox" hidden="true" /></td>
+					<td><input type="text" name="employee.check1" id="check1" class="easyui-validatebox" hidden="true" />
+					<input type="text" name="employee.absent" id="absent" class="easyui-validatebox" hidden="true" /></td>
+					<td><input type="text" name="employee.safety" id="safety" class="easyui-validatebox" hidden="true" /></td>
 				</tr>
 			</table>			
 		</form>

@@ -7,15 +7,15 @@ public class SingleThreadPool {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ExecutorService service = Executors.newSingleThreadExecutor();
-		service.execute(new Runnable(){
+		service.execute(new Runnable() {
 			public void run() {
 				System.out.println("I dead");
-			}		
-			
+			}
+
 		});
-		//Èç¹ûÃ»ÓÐÏÂÃæµÄ´úÂë£¬³ÌÐòÒ»Ö±´¦ÓÚ²»½áÊø×´Ì¬£¬
+		// ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½Ò»Ö±ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½
 		service.shutdown();
-		//service.shutdownNow();
+		// service.shutdownNow();
 	}
 
 }

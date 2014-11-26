@@ -10,9 +10,9 @@ public class TraditionalThread {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new Thread(){
-			public void run(){
-				while(true){
+		new Thread() {
+			public void run() {
+				while (true) {
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {
@@ -22,10 +22,10 @@ public class TraditionalThread {
 				}
 			}
 		}.start();
-		
-		new Thread(new Runnable(){
-			public void run(){
-				while(true){
+
+		new Thread(new Runnable() {
+			public void run() {
+				while (true) {
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {
@@ -33,18 +33,14 @@ public class TraditionalThread {
 					}
 					System.out.println(Thread.currentThread().getName());
 				}
-			}			
+			}
 		}).start();
-		
-		
-		new Timer().schedule(
-				new TimerTask(){
-					public void run() {
-						System.out.println(Thread.currentThread().getName());
-					}
-				}, 
-				10000,
-				1000);
+
+		new Timer().schedule(new TimerTask() {
+			public void run() {
+				System.out.println(Thread.currentThread().getName());
+			}
+		}, 10000, 1000);
 	}
 
 }

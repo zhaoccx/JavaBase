@@ -163,9 +163,6 @@ public class EmployeeAction extends ActionSupport {
 		if (page == null) {
 			page = "1";
 			rows = "10";
-		} else {
-			page = page;
-			rows = rows;
 		}
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
 		employee = new Employee();
