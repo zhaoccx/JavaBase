@@ -1,4 +1,4 @@
-package com.zcc.chars01;
+package com.zcc.chap02;
 
 //lowArray.java
 //demonstrates array class with low-level interface

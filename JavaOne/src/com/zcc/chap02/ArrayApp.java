@@ -1,4 +1,4 @@
-package com.zcc.chars01;
+package com.zcc.chap02;
 
 //array.java
 //demonstrates Java arrays

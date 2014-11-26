@@ -1,4 +1,4 @@
-package com.zcc.chars01;
+package com.zcc.chap02;
 
 //highArray.java
 //demonstrates array class with high-level interface
