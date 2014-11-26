@@ -1,10 +1,8 @@
 package cn.itcast.day1;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Properties;
 
 public class ReflectTest2 {
@@ -12,35 +10,54 @@ public class ReflectTest2 {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		/*getRealPath();//½ðÉ½´Ê°Ô/ÄÚ²¿
-		Ò»¶¨Òª¼Ç×¡ÓÃÍêÕûµÄÂ·¾¶£¬µ«ÍêÕûµÄÂ·¾¶²»ÊÇÓ²±àÂë£¬¶øÊÇÔËËã³öÀ´µÄ¡£*/
-		//InputStream ips = new FileInputStream("config.properties");
-		
-		//InputStream ips = ReflectTest2.class.getClassLoader().getResourceAsStream("cn/itcast/day1/config.properties");
-		//InputStream ips = ReflectTest2.class.getResourceAsStream("resources/config.properties");
+		/*
+		 * getRealPath();//ï¿½ï¿½É½ï¿½Ê°ï¿½/ï¿½Ú²ï¿½
+		 * Ò»ï¿½ï¿½Òªï¿½ï¿½×¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½
+		 */
+		// InputStream ips = new FileInputStream("config.properties");
+
+		// InputStream ips =
+		// ReflectTest2.class.getClassLoader().getResourceAsStream("cn/itcast/day1/config.properties");
+		// InputStream ips =
+		// ReflectTest2.class.getResourceAsStream("resources/config.properties");
 		InputStream ips = ReflectTest2.class.getResourceAsStream("/cn/itcast/day1/resources/config.properties");
 
 		Properties props = new Properties();
 		props.load(ips);
 		ips.close();
 		String className = props.getProperty("className");
-		Collection collections = (Collection)Class.forName(className).newInstance();
-		
-		//Collection collections = new HashSet();
-		ReflectPoint pt1 = new ReflectPoint(3,3);
-		ReflectPoint pt2 = new ReflectPoint(5,5);
-		ReflectPoint pt3 = new ReflectPoint(3,3);	
+		Collection collections = (Collection) Class.forName(className).newInstance();
+
+		// Collection collections = new HashSet();
+		ReflectPoint pt1 = new ReflectPoint(3, 3);
+		ReflectPoint pt2 = new ReflectPoint(5, 5);
+		ReflectPoint pt3 = new ReflectPoint(3, 3);
 
 		collections.add(pt1);
 		collections.add(pt2);
 		collections.add(pt3);
-		collections.add(pt1);	
-		
-		//pt1.y = 7;		
-		//collections.remove(pt1);
-		
+		collections.add(pt1);
+
+		// pt1.y = 7;
+		// collections.remove(pt1);
+
+		System.out.println(collections.size());
+
+		Test1();
+	}
+
+	public static void Test1() {
+		Collection collections = new ArrayList();
+		ReflectPoint pt1 = new ReflectPoint(3, 3);
+		ReflectPoint pt2 = new ReflectPoint(5, 5);
+		ReflectPoint pt3 = new ReflectPoint(3, 3);
+
+		collections.add(pt1);
+		collections.add(pt2);
+		collections.add(pt3);
+		collections.add(pt1);
 		System.out.println(collections.size());
 	}
 
