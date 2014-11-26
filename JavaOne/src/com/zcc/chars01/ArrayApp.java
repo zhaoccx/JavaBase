@@ -38,7 +38,7 @@ public class ArrayApp {
 			System.out.println("Can't find " + searchKey); // yes
 		else
 			System.out.println("Found " + searchKey); // no
-			// --------------------------------------------------------------
+		// --------------------------------------------------------------
 		searchKey = 55; // delete item with key 55
 		for (j = 0; j < nElems; j++)
 			// look for it
