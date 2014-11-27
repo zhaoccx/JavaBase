@@ -56,6 +56,26 @@ public class OrdArray {
 	} // end insert()
 		// -----------------------------------------------------------
 
+	public void insert2(long value) {// put element into array in method
+		// TODO 还没有写好。二分查找插入
+		int lower = 0;
+		int upper = nElems - 1;
+		int middle;
+		while (true) {
+			middle = (lower + upper) / 2;
+			if (a[middle] == value) {
+				break;
+			} else if (a[middle] > value) {
+				upper = middle;
+			} else if (a[middle] < value) {
+				lower = middle;
+			} else if (lower > upper) {
+				break;
+			}
+		}
+
+	}
+
 	public boolean delete(long value) {
 		int j = find(value);
 		if (j == nElems) // can't find it

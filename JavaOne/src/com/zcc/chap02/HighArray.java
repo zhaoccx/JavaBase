@@ -10,8 +10,7 @@ public class HighArray {
 
 	// -----------------------------------------------------------
 
-	public HighArray(int max) // constructor
-	{
+	public HighArray(int max) { // constructor
 		a = new long[max]; // create the array
 		nElems = 0; // no items yet
 	}
@@ -30,8 +29,7 @@ public class HighArray {
 	} // end find()
 		// -----------------------------------------------------------
 
-	public void insert(long value) // put element into array
-	{
+	public void insert(long value) {// put element into array
 		a[nElems] = value; // insert it
 		nElems++; // increment size
 	}
@@ -56,13 +54,42 @@ public class HighArray {
 	} // end delete()
 		// -----------------------------------------------------------
 
-	public void display() // displays array contents
-	{
+	public void display() { // displays array contents
 		for (int j = 0; j < nElems; j++)
 			// for each element,
 			System.out.print(a[j] + " "); // display it
 		System.out.println("");
 	}
+
 	// -----------------------------------------------------------
+
+	public long getMax() {// get Max item
+		if (null == a) {
+			return -1L;
+		}
+		long max = 0L;
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] > max) {
+				max = a[i];
+			}
+		}
+		return max;
+	}
+
+	public long removeMax() {
+		long max = getMax();
+		int index = a.length;
+		for (int i = 0; i < a.length; i++) {
+			if (max == a[i]) {
+				index = i;
+			}
+			if (i > index) {
+				a[i - 1] = a[i];
+			}
+		}
+		nElems--;
+		return max;
+
+	}
 } // end class HighArray
 // //////////////////////////////////////////////////////////////

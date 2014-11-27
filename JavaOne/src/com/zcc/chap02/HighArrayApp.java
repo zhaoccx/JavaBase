@@ -3,7 +3,7 @@ package com.zcc.chap02;
 public class HighArrayApp {
 	public static void main(String[] args) {
 		int maxSize = 100; // array size
-		HighArray arr;  // reference to array
+		HighArray arr; // reference to array
 		arr = new HighArray(maxSize); // create the array
 
 		arr.insert(77); // insert 10 items
@@ -25,10 +25,25 @@ public class HighArrayApp {
 		else
 			System.out.println("Can't find " + searchKey);
 
-		arr.delete(00); // delete 3 items
-		arr.delete(55);
-		arr.delete(99);
+		System.out.println(arr.getMax());
+
+		// arr.delete(00); // delete 3 items
+		// arr.delete(55);
+		// arr.delete(99);
+
+		System.out.println(arr.getMax());
 
 		arr.display(); // display items again
+
+		// System.out.println(arr.removeMax());
+
+		arr.display();
+
+		HighArray array = new HighArray(50);
+		for (int i = 0; i < 50; i++) {
+			array.insert(arr.removeMax());
+		}
+
+		array.display();
 	} // end main()
 } // end class HighArrayApp
