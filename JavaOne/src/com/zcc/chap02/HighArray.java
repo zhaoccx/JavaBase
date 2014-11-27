@@ -7,6 +7,7 @@ package com.zcc.chap02;
 public class HighArray {
 	private long[] a; // ref to array a
 	private int nElems; // number of data items
+
 	// -----------------------------------------------------------
 
 	public HighArray(int max) // constructor
@@ -27,7 +28,7 @@ public class HighArray {
 		else
 			return true; // no, found it
 	} // end find()
-	// -----------------------------------------------------------
+		// -----------------------------------------------------------
 
 	public void insert(long value) // put element into array
 	{
@@ -53,7 +54,7 @@ public class HighArray {
 			return true;
 		}
 	} // end delete()
-	// -----------------------------------------------------------
+		// -----------------------------------------------------------
 
 	public void display() // displays array contents
 	{
