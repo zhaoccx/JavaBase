@@ -3,7 +3,7 @@ package com.zcc.chap02;
 public class HighArrayApp {
 	public static void main(String[] args) {
 		int maxSize = 100; // array size
-		HighArray arr; // reference to array
+		HighArray arr;  // reference to array
 		arr = new HighArray(maxSize); // create the array
 
 		arr.insert(77); // insert 10 items
