@@ -7,16 +7,15 @@ package com.zcc.chap02;
 public class OrdArray {
 	private long[] a; // ref to array a
 	private int nElems; // number of data items
+
 	// -----------------------------------------------------------
 
-	public OrdArray(int max) // constructor
-	{
+	public OrdArray(int max) {// constructor
 		a = new long[max]; // create array
 		nElems = 0;
 	}
 
-	// -----------------------------------------------------------
-	public int size() {
+	public int size() {// array length
 		return nElems;
 	}
 
@@ -41,10 +40,9 @@ public class OrdArray {
 			} // end else divide range
 		} // end while
 	} // end find()
-	// -----------------------------------------------------------
+		// -----------------------------------------------------------
 
-	public void insert(long value) // put element into array
-	{
+	public void insert(long value) {// put element into array
 		int j;
 		for (j = 0; j < nElems; j++)
 			// find where it goes
@@ -56,7 +54,7 @@ public class OrdArray {
 		a[j] = value; // insert it
 		nElems++; // increment size
 	} // end insert()
-	// -----------------------------------------------------------
+		// -----------------------------------------------------------
 
 	public boolean delete(long value) {
 		int j = find(value);
@@ -71,10 +69,9 @@ public class OrdArray {
 			return true;
 		}
 	} // end delete()
-	// -----------------------------------------------------------
+		// -----------------------------------------------------------
 
-	public void display() // displays array contents
-	{
+	public void display() {// displays array contents
 		for (int j = 0; j < nElems; j++)
 			// for each element,
 			System.out.print(a[j] + " "); // display it
