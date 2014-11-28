@@ -29,14 +29,12 @@ public class DbUtil {
 			con = dbUtil.getCon();
 			System.out.println("连接成功");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				dbUtil.closeCon(con);
 				System.out.println("关闭连接");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

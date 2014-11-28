@@ -9,7 +9,6 @@ public class PageBean {
 
 	public PageBean() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public PageBean(int page, int rows) {
