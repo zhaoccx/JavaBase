@@ -11,7 +11,6 @@ public class ReflectTest2 {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		/*
 		 * getRealPath();//��ɽ�ʰ�/�ڲ�
 		 * һ��Ҫ��ס�������·�����������·������Ӳ���룬������������ġ�

@@ -45,14 +45,12 @@ public class AutoBoxTest {
 		TWO(40) {
 			@Override
 			public Sex getNextSex() {
-				// TODO Auto-generated method stub
 				return THREE;
 			}
 		},
 		THREE(5) {
 			@Override
 			public Sex getNextSex() {
-				// TODO Auto-generated method stub
 				return ONE;
 			}
 		};

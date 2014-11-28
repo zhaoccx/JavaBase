@@ -13,7 +13,6 @@ public class BeanFactory {
 		try {
 			props.load(ips);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -26,7 +25,6 @@ public class BeanFactory {
 			Class clazz = Class.forName(className);
 			bean = clazz.newInstance();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (bean instanceof ProxyFactoryBean) {
@@ -39,7 +37,6 @@ public class BeanFactory {
 				proxyFactoryBean.setTarget(target);
 				proxy = proxyFactoryBean.getProxy();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return proxy;

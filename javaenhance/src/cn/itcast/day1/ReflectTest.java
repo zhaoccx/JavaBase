@@ -13,7 +13,6 @@ public class ReflectTest {
 	 */
 	@SuppressWarnings({ "rawtypes", "unused" })
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		String str1 = "abc";
 		Class cls1 = str1.getClass();
 		Class cls2 = String.class;

@@ -16,7 +16,6 @@ public class IntroSpectorTest {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		ReflectPoint pt1 = new ReflectPoint(3, 5);
 
 		String propertyName = "x";

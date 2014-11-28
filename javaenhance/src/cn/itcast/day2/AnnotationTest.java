@@ -11,7 +11,6 @@ public class AnnotationTest {
 	@SuppressWarnings("deprecation")
 	@ItcastAnnotation("xyz")
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		System.runFinalizersOnExit(true);
 		if (AnnotationTest.class.isAnnotationPresent(ItcastAnnotation.class)) {
 			ItcastAnnotation annotation = AnnotationTest.class.getAnnotation(ItcastAnnotation.class);
