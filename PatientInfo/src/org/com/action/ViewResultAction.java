@@ -132,7 +132,6 @@ public class ViewResultAction extends ActionSupport implements ServletRequestAwa
 			try {
 				dbUtil.closeCon(con);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -142,7 +141,6 @@ public class ViewResultAction extends ActionSupport implements ServletRequestAwa
 
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
-		// TODO Auto-generated method stub
 		this.request = request;
 	}
 

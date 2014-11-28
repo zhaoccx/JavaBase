@@ -40,7 +40,6 @@ public class DbUtil {
 			dbUtil.getCon();
 			System.out.println("数据库连接成功。");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
