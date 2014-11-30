@@ -15,6 +15,7 @@ public class OrderedApp {
 		arr.insert(11);
 		arr.insert(00);
 		arr.insert(66);
+		arr.insert(67);
 		arr.insert(33);
 
 		int searchKey = 55; // search for item
@@ -30,5 +31,14 @@ public class OrderedApp {
 		arr.delete(99);
 
 		arr.display(); // display items again
+		System.out.println("********************");
+		arr.insert2(88);
+		arr.insert2(88);
+		arr.insert2(89);
+		arr.insert2(88);
+		arr.insert2(8);
+		arr.insert2(45);
+		arr.insert2(45);
+		arr.display();
 	} // end main()
 } // end class OrderedApp
