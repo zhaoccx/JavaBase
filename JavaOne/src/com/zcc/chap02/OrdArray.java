@@ -79,7 +79,9 @@ public class OrdArray {
 
 		}
 		if (lower == 0 && upper != nElems - 1) {
-			middle = 0;
+			if (!(middle == (nElems - 1) / 2)) {
+				middle = 0;
+			}
 		}
 		for (int i = nElems; i > middle; i--) {
 			a[i] = a[i - 1];
@@ -102,6 +104,20 @@ public class OrdArray {
 		}
 	} // end delete()
 		// -----------------------------------------------------------
+
+	public long getIndex(int i) {
+		return a[i];
+
+	}
+
+	public long[] marge(OrdArray insetarray) {
+
+		for (int i = 0; i < insetarray.size(); i++) {
+			this.insert2(insetarray.getIndex(i));
+		}
+		return a;
+
+	}
 
 	public void display() {// displays array contents
 		for (int j = 0; j < nElems; j++)

@@ -105,7 +105,7 @@ public class HighArray {
 		for (int i = nElems - 1; i >= 1; i--) {
 			if (a[i] == a[0]) {
 				for (int j = i; j <= nElems - 1; j++) {
-					a[i] = a[i + 1];
+					a[j] = a[j + 1];
 				}
 				nElems--;
 				doup++;
