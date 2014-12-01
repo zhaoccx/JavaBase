@@ -66,9 +66,9 @@ public class OrdArray {
 			if (a[middle] == value) {
 				break;
 			} else if (a[middle] > value) {
-				upper = middle;
+				upper = middle - 1;
 			} else if (a[middle] < value) {
-				lower = middle;
+				lower = middle + 1;
 			} else if (lower > upper) {
 				break;
 			}

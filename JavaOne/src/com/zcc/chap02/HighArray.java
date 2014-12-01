@@ -89,7 +89,35 @@ public class HighArray {
 		}
 		nElems--;
 		return max;
+	}
 
+	public int noDup() {
+		// TODO 还要改
+		int doup = 0;
+		for (int i = 0; i < nElems - 1; i++) {
+			for (int j = i + 1; j < nElems - 1; j++) {
+				if (a[i] == a[j]) {
+					a[j] = a[0];
+				}
+			}
+		}
+		display();
+		for (int i = nElems - 1; i >= 1; i--) {
+			if (a[i] == a[0]) {
+				for (int j = i; j <= nElems - 1; j++) {
+					a[j] = a[j + 1];
+				}
+				nElems--;
+				doup++;
+			}
+		}
+
+		return doup;
+
+	}
+
+	public int getlength() {
+		return nElems;
 	}
 } // end class HighArray
 // //////////////////////////////////////////////////////////////

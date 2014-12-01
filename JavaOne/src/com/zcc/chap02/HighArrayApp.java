@@ -12,8 +12,13 @@ public class HighArrayApp {
 		arr.insert(55);
 		arr.insert(22);
 		arr.insert(88);
+		arr.insert(88);
+		arr.insert(88);
+		arr.insert(88);
 		arr.insert(11);
 		arr.insert(00);
+		arr.insert(00);
+		arr.insert(66);
 		arr.insert(66);
 		arr.insert(33);
 
@@ -39,11 +44,14 @@ public class HighArrayApp {
 
 		arr.display();
 
-		HighArray array = new HighArray(50);
-		for (int i = 0; i < 50; i++) {
-			array.insert(arr.removeMax());
-		}
+		// HighArray array = new HighArray(50);
+		// for (int i = 0; i < arr.getlength(); i++) {
+		// array.insert(arr.removeMax());
+		// }
 
-		array.display();
+		arr.display();
+		System.out.println("**************");
+		arr.noDup();
+		arr.display();
 	} // end main()
 } // end class HighArrayApp
