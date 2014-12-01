@@ -12,8 +12,7 @@ public class ReflectTest2 {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) throws Exception {
 		/*
-		 * getRealPath();//��ɽ�ʰ�/�ڲ�
-		 * һ��Ҫ��ס�������·�����������·������Ӳ���룬������������ġ�
+		 * getRealPath(); 取真正的路径
 		 */
 		// InputStream ips = new FileInputStream("config.properties");
 
