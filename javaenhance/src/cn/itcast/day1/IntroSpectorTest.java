@@ -68,4 +68,16 @@ public class IntroSpectorTest {
 		return retVal;
 	}
 
+	public void sge() throws IntrospectionException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		BeanInfo beanInfo = Introspector.getBeanInfo(getClass());
+		PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
+		for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
+			if (propertyDescriptor.getName().equals("x")) {
+				System.out.println("");
+				Method readMethod = propertyDescriptor.getReadMethod();
+				Object invoke = readMethod.invoke(getClass());
+				System.out.println(invoke);
+			}
+		}
+	}
 }
