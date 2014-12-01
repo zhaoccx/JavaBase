@@ -79,5 +79,6 @@ public class IntroSpectorTest {
 				System.out.println(invoke);
 			}
 		}
+
 	}
 }
