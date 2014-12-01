@@ -24,6 +24,7 @@ public class OrderedApp {
 		arr2.insert(11);
 		arr2.insert(00);
 		arr2.insert(66);
+
 		arr2.insert(67);
 		arr2.insert(33);
 

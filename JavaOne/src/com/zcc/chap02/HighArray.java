@@ -12,6 +12,7 @@ public class HighArray {
 
 	public HighArray(int max) { // constructor
 		a = new long[max]; // create the array
+
 		nElems = 0; // no items yet
 	}
 

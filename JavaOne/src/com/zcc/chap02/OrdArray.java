@@ -28,6 +28,7 @@ public class OrdArray {
 		while (true) {
 			curIn = (lowerBound + upperBound) / 2;
 			if (a[curIn] == searchKey)
+
 				return curIn; // found it
 			else if (lowerBound > upperBound)
 				return nElems; // can't find it
