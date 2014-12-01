@@ -14,6 +14,7 @@ public class HighArrayApp {
 		arr.insert(88);
 		arr.insert(88);
 		arr.insert(88);
+
 		arr.insert(88);
 
 		arr.insert(11);

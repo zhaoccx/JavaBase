@@ -102,6 +102,7 @@ public class HighArray {
 				}
 			}
 		}
+
 		display();
 		for (int i = nElems - 1; i >= 1; i--) {
 			if (a[i] == a[0]) {

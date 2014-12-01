@@ -38,6 +38,7 @@ public class OrderedApp {
 
 		arr.delete(00); // delete 3 items
 		arr.delete(55);
+
 		arr.delete(99);
 
 		arr.display(); // display items again

@@ -30,6 +30,7 @@ public class OrdArray {
 			if (a[curIn] == searchKey)
 
 				return curIn; // found it
+
 			else if (lowerBound > upperBound)
 				return nElems; // can't find it
 			else // divide range
