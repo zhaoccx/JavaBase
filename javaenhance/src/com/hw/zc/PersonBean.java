@@ -5,6 +5,25 @@ public class PersonBean {
 	private String name;
 	private boolean sex;
 
+	private String x;
+	private String Y;
+
+	public String getX() {
+		return x;
+	}
+
+	public void setX(String x) {
+		this.x = x;
+	}
+
+	public String getY() {
+		return Y;
+	}
+
+	public void setY(String y) {
+		Y = y;
+	}
+
 	public int getAge() {
 		return age;
 	}
