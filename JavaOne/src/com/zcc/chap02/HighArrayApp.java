@@ -9,6 +9,7 @@ public class HighArrayApp {
 		arr.insert(77); // insert 10 items
 		arr.insert(99);
 		arr.insert(44);
+
 		arr.insert(55);
 		arr.insert(22);
 		arr.insert(88);

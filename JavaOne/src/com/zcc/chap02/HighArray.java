@@ -5,6 +5,7 @@ package com.zcc.chap02;
 //to run this program: C>java HighArrayApp
 ////////////////////////////////////////////////////////////////
 public class HighArray {
+
 	private long[] a; // ref to array a
 	private int nElems; // number of data items
 

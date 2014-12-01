@@ -5,6 +5,7 @@ package com.zcc.chap02;
 //to run this program: C>java OrderedApp
 ////////////////////////////////////////////////////////////////
 public class OrdArray {
+
 	private long[] a; // ref to array a
 	private int nElems; // number of data items
 

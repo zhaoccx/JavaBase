@@ -12,6 +12,7 @@ public class OrderedApp {
 		arr.insert(55);
 		arr.insert(22);
 		arr.insert(88);
+
 		arr.insert(11);
 		arr.insert(00);
 		arr.insert(66);
