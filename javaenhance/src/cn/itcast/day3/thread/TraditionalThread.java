@@ -9,7 +9,9 @@ public class TraditionalThread {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		new Thread() {
+			@Override
 			public void run() {
 				while (true) {
 					try {
@@ -23,6 +25,7 @@ public class TraditionalThread {
 		}.start();
 
 		new Thread(new Runnable() {
+			@Override
 			public void run() {
 				while (true) {
 					try {
@@ -36,6 +39,7 @@ public class TraditionalThread {
 		}).start();
 
 		new Timer().schedule(new TimerTask() {
+			@Override
 			public void run() {
 				System.out.println(Thread.currentThread().getName());
 			}

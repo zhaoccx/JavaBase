@@ -4,20 +4,18 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class BlockingQueueTest {
-	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
 		final BlockingQueue queue = new ArrayBlockingQueue(3);
 		for (int i = 0; i < 2; i++) {
 			new Thread() {
-				@SuppressWarnings("unchecked")
 				@Override
 				public void run() {
 					while (true) {
 						try {
 							Thread.sleep((long) (Math.random() * 1000));
-							System.out.println(Thread.currentThread().getName() + "׼�������!");
+							System.out.println(Thread.currentThread().getName() + "准备放数据!");
 							queue.put(1);
-							System.out.println(Thread.currentThread().getName() + "�Ѿ�������ݣ�" + "����Ŀǰ��" + queue.size() + "�����");
+							System.out.println(Thread.currentThread().getName() + "已经放了数据，" + "队列目前有" + queue.size() + "个数据");
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -33,11 +31,11 @@ public class BlockingQueueTest {
 			public void run() {
 				while (true) {
 					try {
-						// ���˴���˯��ʱ��ֱ��Ϊ100��1000���۲����н��
+						// 将此处的睡眠时间分别改为100和1000，观察运行结果
 						Thread.sleep(1000);
-						System.out.println(Thread.currentThread().getName() + "׼��ȡ���!");
+						System.out.println(Thread.currentThread().getName() + "准备取数据!");
 						queue.take();
-						System.out.println(Thread.currentThread().getName() + "�Ѿ�ȡ����ݣ�" + "����Ŀǰ��" + queue.size() + "�����");
+						System.out.println(Thread.currentThread().getName() + "已经取走数据，" + "队列目前有" + queue.size() + "个数据");
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

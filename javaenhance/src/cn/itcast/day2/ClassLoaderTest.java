@@ -7,8 +7,8 @@ public class ClassLoaderTest {
 	/**
 	 * @param args
 	 */
-	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
 		System.out.println(ClassLoaderTest.class.getClassLoader().getClass().getName());
 		System.out.println(System.class.getClassLoader());
 		System.out.println("xxx");

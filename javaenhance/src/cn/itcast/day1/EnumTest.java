@@ -1,11 +1,14 @@
 package cn.itcast.day1;
 
+import java.util.Date;
+
 public class EnumTest {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		WeekDay1 weekDay = WeekDay1.MON;
 		System.out.println(weekDay.nextDay());
 
@@ -16,7 +19,8 @@ public class EnumTest {
 		System.out.println(WeekDay.valueOf("SUN").toString());
 		System.out.println(WeekDay.values().length);
 
-		// new Date(300){};
+		new Date(300) {
+		};
 	}
 
 	public enum WeekDay {
@@ -55,14 +59,6 @@ public class EnumTest {
 		private int time;
 
 		private TrafficLamp(int time) {
-			this.setTime(time);
-		}
-
-		public int getTime() {
-			return time;
-		}
-
-		public void setTime(int time) {
 			this.time = time;
 		}
 	}

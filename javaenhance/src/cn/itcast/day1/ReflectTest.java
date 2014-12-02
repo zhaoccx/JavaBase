@@ -11,8 +11,8 @@ public class ReflectTest {
 	/**
 	 * @param args
 	 */
-	@SuppressWarnings({ "rawtypes", "unused" })
 	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
 		String str1 = "abc";
 		Class cls1 = str1.getClass();
 		Class cls2 = String.class;
@@ -34,7 +34,7 @@ public class ReflectTest {
 
 		ReflectPoint pt1 = new ReflectPoint(3, 5);
 		Field fieldY = pt1.getClass().getField("y");
-		// fieldY��ֵ�Ƕ��٣���5,�?fieldY���Ƕ������ϵı������������ϣ�Ҫ����ȥȡĳ�������϶�Ӧ��ֵ
+		// fieldY的值是多少？是5,错！fieldY不是对象身上的变量，而是类上，要用它去取某个对象上对应的值
 		System.out.println(fieldY.get(pt1));
 		Field fieldX = pt1.getClass().getDeclaredField("x");
 		fieldX.setAccessible(true);
@@ -59,8 +59,6 @@ public class ReflectTest {
 		int[][] a3 = new int[2][3];
 		String[] a4 = new String[] { "a", "b", "c" };
 		System.out.println(a1.getClass() == a2.getClass());
-		// System.out.println(a1.getClass() == a4.getClass());
-		// System.out.println(a1.getClass() == a3.getClass());
 		System.out.println(a1.getClass().getName());
 		System.out.println(a1.getClass().getSuperclass().getName());
 		System.out.println(a4.getClass().getSuperclass().getName());
@@ -81,7 +79,6 @@ public class ReflectTest {
 		printObject("xyz");
 	}
 
-	@SuppressWarnings("rawtypes")
 	private static void printObject(Object obj) {
 		Class clazz = obj.getClass();
 		if (clazz.isArray()) {

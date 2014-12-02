@@ -26,7 +26,6 @@ public class FutureTest {
 
 		}
 		// Future<String> future = service.submit(new MyCallable());
-		@SuppressWarnings("unused")
 		class MyCallable2<T> implements Callable<T> {
 
 			@Override
@@ -52,7 +51,7 @@ public class FutureTest {
 		});
 
 		try {
-			// ���������������ͣʧ�ܣ����ܿ��������ӡ��calling��
+			// 加上下面这句则暂停失败，还能看到上面打印的calling。
 			// Thread.sleep(2000);
 			// future.cancel(false);
 			// System.out.println(future.isCancelled());

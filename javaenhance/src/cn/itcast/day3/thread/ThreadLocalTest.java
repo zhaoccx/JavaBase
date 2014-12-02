@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 public class ThreadLocalTest {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		ExecutorService service = Executors.newFixedThreadPool(2);
 		Runnable runnable = new Runnable() {
 			A a = new A();
@@ -27,10 +28,8 @@ public class ThreadLocalTest {
 }
 
 class MyData {
-	@SuppressWarnings("rawtypes")
 	public static ThreadLocal x = new ThreadLocal();
 
-	@SuppressWarnings("unchecked")
 	public static void set(Object value) {
 		x.set(value);
 	}
@@ -39,14 +38,12 @@ class MyData {
 		return x.get();
 	}
 
-	@SuppressWarnings("rawtypes")
 	private static ThreadLocal data = new ThreadLocal();
 
 	/*
-	 * ���ڲ�ͬ���߳���˵��getMyData�õ��Ķ��󶼲���ͬ��
-	 * ��ͬһ���߳���˵������getMyData���ٴκ�������getMyData���õ��Ķ���ͬһ��
+	 * 对于不同的线程来说，getMyData拿到的对象都不相同，
+	 * 对同一个线程来说，不管getMyData多少次和在哪里getMyData，拿到的都是同一个
 	 */
-	@SuppressWarnings("unchecked")
 	public static MyData getMyDate() {
 		MyData myData = (MyData) data.get();
 		if (myData == null) {

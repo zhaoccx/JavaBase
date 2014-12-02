@@ -1,13 +1,11 @@
 package cn.itcast.day1;
 
 //import static java.lang.Math.max;
-import static java.lang.Math.abs;
-import static java.lang.Math.max;
+import static java.lang.Math.*;
 import cn.itcast.day2.AnnotationTest;
 
 public class StaticImport {
 
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 
 		AnnotationTest.sayHello();

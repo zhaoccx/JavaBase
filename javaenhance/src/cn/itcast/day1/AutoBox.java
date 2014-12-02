@@ -6,7 +6,7 @@ public class AutoBox {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// 享元模式 比较小的同一个对象
+		// TODO Auto-generated method stub
 		Integer iObj = 3;
 		System.out.println(iObj + 12);
 
@@ -14,8 +14,6 @@ public class AutoBox {
 		String s2 = new String("abc");
 		Integer i1 = 137;
 		Integer i2 = 137;
-
-		System.out.println(s1 == s2);
 
 		System.out.println(i1 == i2);
 

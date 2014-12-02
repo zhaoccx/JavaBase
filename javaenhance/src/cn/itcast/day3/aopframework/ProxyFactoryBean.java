@@ -28,10 +28,12 @@ public class ProxyFactoryBean {
 	}
 
 	public Object getProxy() {
+		// TODO Auto-generated method stub
 		Object proxy3 = Proxy.newProxyInstance(target.getClass().getClassLoader(),
 		/* new Class[]{Collection.class}, */
 		target.getClass().getInterfaces(), new InvocationHandler() {
 
+			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
 				/*

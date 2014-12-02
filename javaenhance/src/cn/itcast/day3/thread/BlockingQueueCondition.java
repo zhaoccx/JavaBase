@@ -28,11 +28,8 @@ public class BlockingQueueCondition {
 
 }
 
-@SuppressWarnings("unchecked")
 class Business3 {
-	@SuppressWarnings("rawtypes")
 	BlockingQueue subQueue = new ArrayBlockingQueue(1);
-	@SuppressWarnings("rawtypes")
 	BlockingQueue mainQueue = new ArrayBlockingQueue(1);
 	{
 		try {

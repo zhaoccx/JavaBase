@@ -13,6 +13,7 @@ public class ConditionTest {
 		final Business2 business = new Business2();
 		service.execute(new Runnable() {
 
+			@Override
 			public void run() {
 				for (int i = 0; i < 50; i++) {
 					business.sub();
@@ -39,6 +40,7 @@ class Business2 {
 			try {
 				condition.await();
 			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		try {

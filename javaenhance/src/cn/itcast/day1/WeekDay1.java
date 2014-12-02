@@ -8,6 +8,7 @@ public abstract class WeekDay1 {
 
 		@Override
 		public WeekDay1 nextDay() {
+			// TODO Auto-generated method stub
 			return MON;
 		}
 
@@ -16,6 +17,7 @@ public abstract class WeekDay1 {
 
 		@Override
 		public WeekDay1 nextDay() {
+			// TODO Auto-generated method stub
 			return SUN;
 		}
 
@@ -28,6 +30,7 @@ public abstract class WeekDay1 {
 	 * } }
 	 */
 
+	@Override
 	public String toString() {
 		return this == SUN ? "SUN" : "MON";
 	}

@@ -11,15 +11,17 @@ public class ThreadPoolTest {
 	private static int count = 0;
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		ExecutorService service = Executors.newFixedThreadPool(3);
 		// ExecutorService service = Executors.newCachedThreadPool();
 
 		for (int i = 0; i < 10; i++) {
-			// ��ϸƷζrunnable����ŵ�ѭ���������������Ϊ����ÿ���������Լ������ı��
+			// 仔细品味runnable对象放到循环里面和外面的区别，为了让每个对象有自己独立的编号
 			count = i;
 			Runnable runnable = new Runnable() {
 				private int mySequence = count;
 
+				@Override
 				public void run() {
 					for (int i = 0; i < 5; i++) {
 						try {

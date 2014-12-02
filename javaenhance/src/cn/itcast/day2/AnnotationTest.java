@@ -2,15 +2,16 @@ package cn.itcast.day2;
 
 import java.lang.reflect.Method;
 
-@ItcastAnnotation(annotationAttr = @MetaAnnotation("flx"), isClass = OneInterImpl.class, color = "red", value = "abc", arrayAttr = 1)
+@ItcastAnnotation(annotationAttr = @MetaAnnotation("flx"), color = "red", value = "abc", arrayAttr = 1)
 public class AnnotationTest {
 
 	/**
 	 * @param args
 	 */
 	@SuppressWarnings("deprecation")
-	@ItcastAnnotation(value = "xyz", isClass = OneInterImpl.class)
+	@ItcastAnnotation("xyz")
 	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
 		System.runFinalizersOnExit(true);
 		if (AnnotationTest.class.isAnnotationPresent(ItcastAnnotation.class)) {
 			ItcastAnnotation annotation = AnnotationTest.class.getAnnotation(ItcastAnnotation.class);

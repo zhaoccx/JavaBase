@@ -19,6 +19,4 @@ public @interface ItcastAnnotation {
 	EnumTest.TrafficLamp lamp() default EnumTest.TrafficLamp.RED;
 
 	MetaAnnotation annotationAttr() default @MetaAnnotation("lhm");
-
-	Class<OneInterImpl> isClass();
 }

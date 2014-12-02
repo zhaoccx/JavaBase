@@ -34,7 +34,7 @@ public class ReflectPoint {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ReflectPoint other = (ReflectPoint) obj;
+		final ReflectPoint other = (ReflectPoint) obj;
 		if (x != other.x)
 			return false;
 		if (y != other.y)
