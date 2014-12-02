@@ -12,8 +12,7 @@ public class ReflectTest2 {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) throws Exception {
 		/*
-		 * getRealPath();//��ɽ�ʰ�/�ڲ�
-		 * һ��Ҫ��ס�������·�����������·������Ӳ���룬������������ġ�
+		 * getRealPath(); 取真正的路径
 		 */
 		// InputStream ips = new FileInputStream("config.properties");
 
@@ -22,14 +21,13 @@ public class ReflectTest2 {
 		// InputStream ips =
 		// ReflectTest2.class.getResourceAsStream("resources/config.properties");
 		InputStream ips = ReflectTest2.class.getResourceAsStream("/cn/itcast/day1/resources/config.properties");
-
 		Properties props = new Properties();
 		props.load(ips);
 		ips.close();
 		String className = props.getProperty("className");
 		Collection collections = (Collection) Class.forName(className).newInstance();
 
-		// Collection collections = new HashSet();
+		// Collection collections = new ArrayList();
 		ReflectPoint pt1 = new ReflectPoint(3, 3);
 		ReflectPoint pt2 = new ReflectPoint(5, 5);
 		ReflectPoint pt3 = new ReflectPoint(3, 3);
@@ -43,6 +41,8 @@ public class ReflectTest2 {
 		// collections.remove(pt1);
 
 		System.out.println(collections.size());
+		// Object[] array = collections.toArray();
+		// System.out.println(array[0] == array[2]);
 	}
 
 }

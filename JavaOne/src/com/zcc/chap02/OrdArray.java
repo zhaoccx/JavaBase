@@ -5,6 +5,7 @@ package com.zcc.chap02;
 //to run this program: C>java OrderedApp
 ////////////////////////////////////////////////////////////////
 public class OrdArray {
+
 	private long[] a; // ref to array a
 	private int nElems; // number of data items
 
@@ -64,18 +65,32 @@ public class OrdArray {
 		int upper = nElems - 1;
 		int middle;
 		while (true) {
+
 			middle = (lower + upper) / 2;
 			if (a[middle] == value) {
-				break;
-			} else if (a[middle] > value) {
-				upper = middle - 1;
-			} else if (a[middle] < value) {
-				lower = middle + 1;
-			} else if (lower > upper) {
-				break;
+				break; // found it
+			} else if (lower >= upper) {
+				middle++;
+				break; // can't find it
+			} else // divide range
+			{
+				if (a[middle] < value)
+					lower = middle + 1; // it's in upper half
+				else
+					upper = middle - 1; // it's in lower half
+			} // end else divide range
+
+		}
+		if (lower == 0 && upper != nElems - 1) {
+			if (!(middle == (nElems - 1) / 2)) {
+				middle = 0;
 			}
 		}
-
+		for (int i = nElems; i > middle; i--) {
+			a[i] = a[i - 1];
+		}
+		a[middle] = value;
+		nElems++;
 	}
 
 	public boolean delete(long value) {
@@ -92,6 +107,20 @@ public class OrdArray {
 		}
 	} // end delete()
 		// -----------------------------------------------------------
+
+	public long getIndex(int i) {
+		return a[i];
+
+	}
+
+	public long[] marge(OrdArray insetarray) {
+
+		for (int i = 0; i < insetarray.size(); i++) {
+			this.insert2(insetarray.getIndex(i));
+		}
+		return a;
+
+	}
 
 	public void display() {// displays array contents
 		for (int j = 0; j < nElems; j++)

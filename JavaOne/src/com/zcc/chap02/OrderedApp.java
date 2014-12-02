@@ -12,6 +12,7 @@ public class OrderedApp {
 		arr.insert(55);
 		arr.insert(22);
 		arr.insert(88);
+
 		arr.insert(11);
 		arr.insert(00);
 		arr.insert(66);
@@ -24,7 +25,6 @@ public class OrderedApp {
 		arr2.insert(11);
 		arr2.insert(00);
 		arr2.insert(66);
-
 		arr2.insert(67);
 		arr2.insert(33);
 
@@ -51,6 +51,7 @@ public class OrderedApp {
 		arr.insert2(45);
 		arr.display();
 
+		arr.marge(arr2);
 		arr.display();
 	} // end main()
 } // end class OrderedApp

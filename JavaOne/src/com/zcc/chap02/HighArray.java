@@ -5,6 +5,7 @@ package com.zcc.chap02;
 //to run this program: C>java HighArrayApp
 ////////////////////////////////////////////////////////////////
 public class HighArray {
+
 	private long[] a; // ref to array a
 	private int nElems; // number of data items
 
@@ -12,7 +13,6 @@ public class HighArray {
 
 	public HighArray(int max) { // constructor
 		a = new long[max]; // create the array
-
 		nElems = 0; // no items yet
 	}
 
@@ -102,7 +102,6 @@ public class HighArray {
 				}
 			}
 		}
-
 		display();
 		for (int i = nElems - 1; i >= 1; i--) {
 			if (a[i] == a[0]) {
