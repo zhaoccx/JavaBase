@@ -43,6 +43,7 @@ public class ArrayBub {
 	} // end bubbleSort()
 		// --------------------------------------------------------------
 
+	@SuppressWarnings("unused")
 	public void bubbleSort2() {
 		// TODO 还没有写好，两个东西，同时走。
 		int out, in, end;
