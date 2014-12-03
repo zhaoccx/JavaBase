@@ -21,7 +21,6 @@ public class GenericTest {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		ArrayList collection1 = new ArrayList();
 		collection1.add(1);
 		collection1.add(1L);

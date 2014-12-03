@@ -9,7 +9,6 @@ public class EnumTest {
 	 */
 	@SuppressWarnings("serial")
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		WeekDay1 weekDay = WeekDay1.MON;
 		System.out.println(weekDay.nextDay());
 

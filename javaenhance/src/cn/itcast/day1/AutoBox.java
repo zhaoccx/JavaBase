@@ -7,7 +7,6 @@ public class AutoBox {
 	 */
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Integer iObj = 3;
 		System.out.println(iObj + 12);
 

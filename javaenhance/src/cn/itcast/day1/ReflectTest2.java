@@ -11,7 +11,6 @@ public class ReflectTest2 {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 		/*
 		 * getRealPath();//金山词霸/内部 一定要记住用完整的路径，但完整的路径不是硬编码，而是运算出来的。
 		 */
