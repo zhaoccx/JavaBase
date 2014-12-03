@@ -27,6 +27,7 @@ public class ArrayBub {
 			// for each element,
 			System.out.print(a[j] + " "); // display it
 		System.out.println("");
+		System.out.println("******************" + nElems);
 	}
 
 	// --------------------------------------------------------------
