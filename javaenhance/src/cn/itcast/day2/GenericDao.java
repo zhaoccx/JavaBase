@@ -5,7 +5,6 @@ import java.util.Set;
 //dao data access object--->crud
 public class GenericDao<E> {
 	public void add(E x) {
-
 	}
 
 	public E findById(int id) {

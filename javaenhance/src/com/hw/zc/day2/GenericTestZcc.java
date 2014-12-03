@@ -2,7 +2,12 @@ package com.hw.zc.day2;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.Vector;
 
 // ArrayList<Integer> 读 ArrayList typeof Integer
@@ -18,6 +23,7 @@ public class GenericTestZcc {
 		testOne();
 		testTwo();
 		testThree();
+		teseFroe();
 	}
 
 	public static void testOne() {
@@ -46,5 +52,36 @@ public class GenericTestZcc {
 		Vector<Object> vector2 = vector;
 		vector.add("aaa");
 		System.out.println(vector2.get(0));
+	}
+
+	@SuppressWarnings("unused")
+	public static void teseFroe() {
+		Collection<? extends Number> collection = new Vector<Integer>();
+		Collection<? super Integer> collection2 = new Vector<Number>();
+
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("a", 1);
+		map.put("b", 2);
+		map.put("c", 1);
+		map.put("d", 1);
+		map.put("e", 1);
+
+		Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
+		for (Entry<String, Integer> entry : entrySet) {
+			System.out.print(entry.getKey());
+			System.out.println(entry.getValue());
+		}
+		// add(3, 4);
+
+		Map<String, Integer> add = add(map);
+	}
+
+	private static <T> T add(T[] t, int i, int j) {
+		return null;
+	}
+
+	private static <T extends Map<String, Integer>> T add(Map may) {
+		return null;
+
 	}
 }
