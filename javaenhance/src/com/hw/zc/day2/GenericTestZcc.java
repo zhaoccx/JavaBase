@@ -55,7 +55,7 @@ public class GenericTestZcc {
 	}
 
 	@SuppressWarnings("unused")
-	public static void teseFroe() {
+	public static void teseFroe() throws Exception {
 		Collection<? extends Number> collection = new Vector<Integer>();
 		Collection<? super Integer> collection2 = new Vector<Number>();
 
@@ -76,10 +76,12 @@ public class GenericTestZcc {
 		Map<String, Integer> add = add(map);
 	}
 
-	private static <T> T add(T[] t, int i, int j) {
+	@SuppressWarnings("unused")
+	private static <T> T add2(T[] t, int i, int j) {
 		return null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static <T extends Map<String, Integer>> T add(Map may) {
 		return null;
 
