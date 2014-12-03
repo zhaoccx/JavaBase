@@ -18,6 +18,7 @@ public class BeanFactory {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Object getBean(String name) {
 		String className = props.getProperty(name);
 		Object bean = null;

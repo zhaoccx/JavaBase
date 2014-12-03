@@ -11,6 +11,7 @@ public class ReflectTest {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings({ "rawtypes", "unused" })
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		String str1 = "abc";
@@ -79,6 +80,7 @@ public class ReflectTest {
 		printObject("xyz");
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static void printObject(Object obj) {
 		Class clazz = obj.getClass();
 		if (clazz.isArray()) {

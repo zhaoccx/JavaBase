@@ -33,6 +33,7 @@ public class MyClassLoader extends ClassLoader {
 
 	private String classDir;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected Class<?> findClass(String name) throws ClassNotFoundException {
 		// TODO Auto-generated method stub

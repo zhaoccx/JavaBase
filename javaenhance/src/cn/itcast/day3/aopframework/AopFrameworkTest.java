@@ -8,6 +8,7 @@ public class AopFrameworkTest {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		InputStream ips = AopFrameworkTest.class.getResourceAsStream("config.properties");

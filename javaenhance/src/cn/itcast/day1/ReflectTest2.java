@@ -9,6 +9,7 @@ public class ReflectTest2 {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		/*

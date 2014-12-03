@@ -26,6 +26,7 @@ public class FutureTest {
 
 		}
 		// Future<String> future = service.submit(new MyCallable());
+		@SuppressWarnings("unused")
 		class MyCallable2<T> implements Callable<T> {
 
 			@Override

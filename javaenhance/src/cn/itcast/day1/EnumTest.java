@@ -7,6 +7,7 @@ public class EnumTest {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("serial")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		WeekDay1 weekDay = WeekDay1.MON;
@@ -56,6 +57,7 @@ public class EnumTest {
 		};
 		public abstract TrafficLamp nextLamp();
 
+		@SuppressWarnings("unused")
 		private int time;
 
 		private TrafficLamp(int time) {

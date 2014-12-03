@@ -37,6 +37,7 @@ public class GenericTestZcc {
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void testThree() {
 		// List<String> c = new Vector();
 		// List ceList = new Vector<String>();

@@ -12,6 +12,7 @@ public class ProxyTest {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		Class clazzProxy1 = Proxy.getProxyClass(Collection.class.getClassLoader(), Collection.class);

@@ -28,8 +28,10 @@ public class ThreadLocalTest {
 }
 
 class MyData {
+	@SuppressWarnings("rawtypes")
 	public static ThreadLocal x = new ThreadLocal();
 
+	@SuppressWarnings("unchecked")
 	public static void set(Object value) {
 		x.set(value);
 	}
@@ -38,12 +40,14 @@ class MyData {
 		return x.get();
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static ThreadLocal data = new ThreadLocal();
 
 	/*
 	 * 对于不同的线程来说，getMyData拿到的对象都不相同，
 	 * 对同一个线程来说，不管getMyData多少次和在哪里getMyData，拿到的都是同一个
 	 */
+	@SuppressWarnings("unchecked")
 	public static MyData getMyDate() {
 		MyData myData = (MyData) data.get();
 		if (myData == null) {

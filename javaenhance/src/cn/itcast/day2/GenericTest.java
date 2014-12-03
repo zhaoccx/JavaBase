@@ -19,6 +19,7 @@ public class GenericTest {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		ArrayList collection1 = new ArrayList();
@@ -90,12 +91,14 @@ public class GenericTest {
 
 	}
 
+	@SuppressWarnings("unused")
 	private static <T> void fillArray(T[] a, T obj) {
 		for (int i = 0; i < a.length; i++) {
 			a[i] = obj;
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private static <T> T autoConvert(Object obj) {
 		return (T) obj;
 	}

@@ -6,10 +6,12 @@ import java.util.concurrent.Executors;
 
 public class ExchangerTest {
 
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
 		ExecutorService service = Executors.newCachedThreadPool();
 		final Exchanger exchanger = new Exchanger();
 		service.execute(new Runnable() {
+			@SuppressWarnings("unchecked")
 			@Override
 			public void run() {
 				try {
@@ -24,6 +26,7 @@ public class ExchangerTest {
 			}
 		});
 		service.execute(new Runnable() {
+			@SuppressWarnings("unchecked")
 			@Override
 			public void run() {
 				try {
