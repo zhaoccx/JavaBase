@@ -43,6 +43,24 @@ public class ArrayBub {
 	} // end bubbleSort()
 		// --------------------------------------------------------------
 
+	public void bubbleSort2() {
+		// TODO 还没有写好，两个东西，同时走。
+		int out, in, end;
+
+		for (out = nElems - 1; out > 1; out--) {
+			end = out;
+			for (in = 0; in < out; in++) {
+				if (a[in] > a[in + 1]) {
+					swap(in, in + 1);
+				}
+			}
+			for (;;) {
+
+			}
+		}
+
+	}
+
 	private void swap(int one, int two) {
 		long temp = a[one];
 		a[one] = a[two];
