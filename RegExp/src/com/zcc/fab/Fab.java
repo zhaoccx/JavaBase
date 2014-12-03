@@ -7,6 +7,11 @@ public class Fab {
 		System.out.println(System.currentTimeMillis());
 		System.out.println(rcv(40));
 		System.out.println(System.currentTimeMillis());
+		getProperty("and");
+	}
+
+	private static void getProperty(String string) {
+		System.err.println(string);
 	}
 
 	public static long f(int index) {
