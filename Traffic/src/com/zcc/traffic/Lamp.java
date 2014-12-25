@@ -43,7 +43,7 @@ public enum Lamp {
 		if (opposite != null) {
 			Lamp.valueOf(opposite).light();
 		}
-		System.out.println(name() + " lamp is green，下面总共应该有6个方向能看到汽车穿过！");
+		System.out.println(this.name() + " lamp is green，下面总共应该有6个方向能看到汽车穿过！");
 
 	}
 
