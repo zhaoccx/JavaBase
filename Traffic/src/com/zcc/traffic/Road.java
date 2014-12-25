@@ -26,6 +26,8 @@ public class Road {
 		// 模拟车辆不断随机上路的过程
 		ExecutorService pool = Executors.newSingleThreadExecutor();
 		pool.execute(new Runnable() {
+
+			@Override
 			public void run() {
 				for (int i = 1; i < 1000; i++) {
 					try {
@@ -42,6 +44,8 @@ public class Road {
 		// 每隔一秒检查对应的灯是否为绿，是则放行一辆车
 		ScheduledExecutorService timer = Executors.newScheduledThreadPool(1);
 		timer.scheduleAtFixedRate(new Runnable() {
+
+			@Override
 			public void run() {
 				if (vechicles.size() > 0) {
 					boolean lighted = Lamp.valueOf(Road.this.name).isLighted();
