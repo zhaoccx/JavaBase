@@ -17,12 +17,14 @@ public class TestClone {
 	}
 
 	public List<Integer[]> getIntegersList(int n, int m) {
+		@SuppressWarnings("unused")
 		List<Integer[]> list = new ArrayList<Integer[]>();
 
 		return null;
 	}
 
 	public Map<Integer, Integer> getOtherMap(int n, int m) {
+		@SuppressWarnings("unused")
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		int[] array = new int[n];
 		for (int i = 0; i < array.length; i++) {
