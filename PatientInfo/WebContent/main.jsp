@@ -73,19 +73,19 @@
 </script>
 </head>
 <body class="easyui-layout">
-	<div region="north" style="height: 85px;background-color: #E0EDFF">
+	<div align="top" style="height: 85px;background-color: #E0EDFF">
 		<div align="left" style="float: left; height:80px"><img src="images/logo_1.png"></div>
 		<div style="padding-top: 50px;padding-right: 20px; float:right">当前用户：&nbsp;<font color="red" >${currentUser.userName}</font><a href="login!logout" style="margin-left:20px;text-decoration:none">注销登录</a></div>
 		
 	</div>
-	<div region="center">
-		<div class="easyui-tabs" fit="true" border="false" id="tabs">
-			<div title="首页"  data-options="iconCls:'icon-welcome'">
+	<div align="center">
+		<div class="easyui-tabs"  style="border:false" id="tabs">
+			<div title="首页" >
 				<div align="center" style="padding-top: 100px;"><font color="red" size="10">欢迎使用病人挂号信息系统</font></div>
 			</div>
 		</div>
 	</div>
-	<div region="west" style="width: 150px;" title="导航菜单" split="true">
+	<div align="left" style="width: 150px;" title="导航菜单">
 		<ul id="tree"></ul>
 	</div>
 	<div region="south" style="height: 25px;" align="center">版权所有<a href="http://www.java1234.com">www.java1234.com</a></div>
