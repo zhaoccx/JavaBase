@@ -18,7 +18,7 @@ public class LampController {
 
 			@Override
 			public void run() {
-				System.out.println("来啊");
+				System.out.println(currentLamp.name() + "方向的灯亮了。可以过车了。");
 				currentLamp = currentLamp.blackOut();
 			}
 		}, 10, 10, TimeUnit.SECONDS);
