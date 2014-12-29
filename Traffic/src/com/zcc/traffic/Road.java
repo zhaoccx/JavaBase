@@ -29,7 +29,8 @@ public class Road {
 
 			@Override
 			public void run() {
-				for (int i = 1; i < 1000; i++) {
+				// 这个死循环可以无限产生车字。
+				for (int i = 1;; i++) {
 					try {
 						Thread.sleep((new Random().nextInt(10) + 1) * 1000);
 					} catch (InterruptedException e) {
@@ -53,7 +54,6 @@ public class Road {
 						System.out.println(vechicles.remove(0) + " is traversing !");
 					}
 				}
-
 			}
 		}, 1, 1, TimeUnit.SECONDS);
 
