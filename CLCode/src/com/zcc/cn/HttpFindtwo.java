@@ -3,8 +3,7 @@ package com.zcc.cn;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.net.URLDecoder;
 
 
 public class HttpFindtwo {
@@ -42,9 +41,10 @@ public class HttpFindtwo {
 	private static void parse(String line) {
 		try {
 			String es = null;
-			es = new String(line.getBytes("GB2312"), "UTF-8");
+			line = URLDecoder.decode(line, "GB2312"); 
+//			es = new String(line.getBytes("GB2312"), "UTF-8");
 			System.out.println(es);
-			while (es.contains("水货员")) {
+			while (line.contains("水货员")) {
 				System.err.println("码来了，，，，，，");
 			}
 		} catch (UnsupportedEncodingException e) {

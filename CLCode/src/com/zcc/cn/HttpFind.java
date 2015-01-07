@@ -14,8 +14,8 @@ public class HttpFind {
 	public static int flag = 0;
 
 	public static void main(String[] args) {
-		try {
-			for (;;) {
+		for (;;) {
+			try {
 				flag = 0;
 				java.net.URL url = new java.net.URL("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				// System.out.println(url.openStream().toString());
@@ -24,7 +24,7 @@ public class HttpFind {
 				while ((ling = reader.readLine()) != null) {
 					SVNs(ling);
 				}
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 				if (flag == 0) {
 					System.err.println("码来了。码来了。码来了。码来了。码来了。");
 					System.err.println("码来了。码来了。码来了。码来了。码来了。");
@@ -37,16 +37,13 @@ public class HttpFind {
 					System.err.println("码来了。码来了。码来了。码来了。码来了。");
 					System.err.println("码来了。码来了。码来了。码来了。码来了。");
 				}
+			} catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			} catch (InterruptedException e) {
+				System.out.println(e.getMessage());
 			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
