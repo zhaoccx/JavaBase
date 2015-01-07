@@ -15,7 +15,7 @@ public class HttpFind {
 
 	public static void main(String[] args) {
 		try {
-			for (int i = 0;; i++) {
+			for (;;) {
 				flag = 0;
 				java.net.URL url = new java.net.URL("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				// System.out.println(url.openStream().toString());
