@@ -2,55 +2,56 @@ package com.zcc.cn;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HttpFindtwo {
 
+	public static int end = 0;
+
 	public static void getWebCon(String domain) {
 		String str = "";
-		System.out.println("开始抓取邮件地址..(" + domain + ")");
-		for (int i = 1; i <= 26; i++) {
-			StringBuffer sb = new StringBuffer();
-			try {
-				str = domain + "&page=" + i;
-				System.out.println(str);
-				java.net.URL url = new java.net.URL(str);
-				BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-				String line;
-				while ((line = in.readLine()) != null) {
-					parse(line);
+		System.out.println("开始抓取后面地址..(" + domain + ")");
+			for (int i = 3; i <= 18; i++) {
+				StringBuffer sb = new StringBuffer();
+				try {
+					str = domain + "&page=" + i;
+					System.out.println(str);
+					java.net.URL url = new java.net.URL(str);
+					BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+					String line;
+					while ((line = in.readLine()) != null) {
+						parse(line);
+					}
+					Thread.sleep(1000);
+					System.out.println();
+					in.close();
+					sb = null;
+				} catch (Exception e) {
+					sb.append(e.toString());
+					System.err.println(e);
 				}
-				System.out.println();
-				in.close();
-				sb = null;
-			} catch (Exception e) {
-				sb.append(e.toString());
-				System.err.println(e);
-
 			}
-		}
 	}
 
 	public static void main(String[] args) {
 
 		HttpFindtwo.getWebCon("http://cl.org.ru/read.php?tid=1296368"); // 这是要抓取的网页,自己可以试下.
+
 	}
 
 	private static void parse(String line) {
-		try {
-			String es = null;
-			line = URLDecoder.decode(line, "GB2312"); 
-//			es = new String(line.getBytes("GB2312"), "UTF-8");
-			System.out.println(es);
-			while (line.contains("水货员")) {
-				System.err.println("码来了，，，，，，");
-			}
-		} catch (UnsupportedEncodingException e) {
-		}
+		SimpleDateFormat da = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Pattern pattern = Pattern.compile("http://ww3.sinaimg.cn/mw1024/d263841dtw1emmeyyupytg209408c40b.gif");
+		Matcher matcher = pattern.matcher(line);
 
-//		Pattern p = Pattern.compile("水货员");// 邮箱的正则表达式
-//		Matcher m = p.matcher(line);
+		while (matcher.find()) {
+			System.err.println("ssssssssssssssssssssssss");
+			System.err.println(da.format(new Date()));
+			System.err.println("码来了。。。。。。。。。。。。。。。。。。。。。。");
+		}
 	}
+
 }

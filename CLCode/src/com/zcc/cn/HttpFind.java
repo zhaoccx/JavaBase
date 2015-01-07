@@ -13,37 +13,35 @@ public class HttpFind {
 
 	public static int flag = 0;
 
-	public static void main(String[] args) {
-		for (;;) {
-			try {
-				flag = 0;
-				java.net.URL url = new java.net.URL("http://cl.org.ru/htm_data/7/1411/1296368.html");
-				// System.out.println(url.openStream().toString());
-				BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-				String ling = "";
-				while ((ling = reader.readLine()) != null) {
-					SVNs(ling);
-				}
-				Thread.sleep(5000);
-				if (flag == 0) {
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-					System.err.println("码来了。码来了。码来了。码来了。码来了。");
-				}
-			} catch (FileNotFoundException e) {
-				System.out.println(e.getMessage());
-			} catch (IOException e) {
-				System.out.println(e.getMessage());
-			} catch (InterruptedException e) {
-				System.out.println(e.getMessage());
+	public static void run() {
+		try {
+			flag = 0;
+			java.net.URL url = new java.net.URL("http://cl.org.ru/htm_data/7/1411/1296368.html");
+			// System.out.println(url.openStream().toString());
+			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+			String ling = "";
+			while ((ling = reader.readLine()) != null) {
+				SVNs(ling);
 			}
+			Thread.sleep(1000);
+			if (flag == 0) {
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 
