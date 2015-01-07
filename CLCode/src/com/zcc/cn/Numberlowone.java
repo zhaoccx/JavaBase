@@ -4,7 +4,8 @@ public class Numberlowone {
 	public static void main(String[] args) {
 
 		numberAddsomeLists("1aaeb20d831cf710", 1);
-
+		// int s = 'f';
+		// System.out.println(s);
 	}
 
 	/**
@@ -27,7 +28,14 @@ public class Numberlowone {
 				}
 				numberAddSome(strs, i, s);
 			} catch (Exception e) {
-
+				int s = charArray[i];
+				s += some;
+				if (s < 97) {
+					s += 6;
+				} else if (s > 102) {
+					s -= 6;
+				}
+				numberAddSomeChar(strs, i, (char) s);
 			}
 		}
 
@@ -46,4 +54,19 @@ public class Numberlowone {
 		System.out.println(buff.toString());
 		System.out.println();
 	}
+
+	public static void numberAddSomeChar(String strs, int index, char value) {
+		StringBuffer buff = new StringBuffer();
+		char[] charArray = strs.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			if (i == index) {
+				buff.append(value);
+			} else {
+				buff.append(charArray[i]);
+			}
+		}
+		System.out.println(buff.toString());
+		System.out.println();
+	}
+
 }
