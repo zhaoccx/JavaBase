@@ -3,12 +3,11 @@ package com.zcc.cn;
 public class Numberlowone {
 	public static void main(String[] args) {
 
-		numberAddsome("1aaeb20d831cf710", 5);
+		numberAddsomeLists("1aaeb20d831cf710", 1);
 
 	}
 
-	public static void numberAddsome(String strs, int some) {
-		StringBuffer buff = new StringBuffer();
+	public static void numberAddsomeLists(String strs, int some) {
 		char[] charArray = strs.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {
 			try {
@@ -18,14 +17,25 @@ public class Numberlowone {
 				if (s < 0) {
 					s += 10;
 				}
-				
-				buff.append(s);
+				numberAddSome(strs, i, s);
 			} catch (Exception e) {
-				buff.append(charArray[i]);
+
 			}
 		}
 
-		System.out.println(buff.toString());
+	}
 
+	public static void numberAddSome(String strs, int index, int value) {
+		StringBuffer buff = new StringBuffer();
+		char[] charArray = strs.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			if (i == index) {
+				buff.append(value);
+			} else {
+				buff.append(charArray[i]);
+			}
+		}
+		System.out.println(buff.toString());
+		System.out.println();
 	}
 }
