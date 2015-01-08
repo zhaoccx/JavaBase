@@ -25,16 +25,27 @@ public class HttpFind {
 			}
 			Thread.sleep(1000);
 			if (flag == 0) {
+
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 				System.err.println("码来了。码来了。码来了。码来了。码来了。");
+				System.err.println("http://cl.org.ru/htm_data/7/1411/1296368.html");
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());

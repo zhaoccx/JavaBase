@@ -14,26 +14,26 @@ public class HttpFindtwo {
 	public static void getWebCon(String domain) {
 		String str = "";
 		System.out.println("开始抓取后面地址..(" + domain + ")");
-			for (int i = 3; i <= 18; i++) {
-				StringBuffer sb = new StringBuffer();
-				try {
-					str = domain + "&page=" + i;
-					System.out.println(str);
-					java.net.URL url = new java.net.URL(str);
-					BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-					String line;
-					while ((line = in.readLine()) != null) {
-						parse(line);
-					}
-					Thread.sleep(1000);
-					System.out.println();
-					in.close();
-					sb = null;
-				} catch (Exception e) {
-					sb.append(e.toString());
-					System.err.println(e);
+		for (int i = 16; i <= 18; i++) {
+			StringBuffer sb = new StringBuffer();
+			try {
+				str = domain + "&page=" + i;
+				System.out.println(str);
+				java.net.URL url = new java.net.URL(str);
+				BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+				String line;
+				while ((line = in.readLine()) != null) {
+					parse(line);
 				}
+				Thread.sleep(1000);
+				System.out.println();
+				in.close();
+				sb = null;
+			} catch (Exception e) {
+				sb.append(e.toString());
+				System.err.println(e);
 			}
+		}
 	}
 
 	public static void main(String[] args) {
