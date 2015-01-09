@@ -45,22 +45,21 @@ public class FullSort {
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
-	public static void main(String[] args) {
-		String[] datas = "3de0 7d3c 6d47 53dd".split(" ");
-		sort(Arrays.asList(datas), new ArrayList());
-	}
-	
 //	@SuppressWarnings("rawtypes")
 //	public static void main(String[] args) {
-//		String datas = "1c@69#928f99c089";
-//		String [] se = {"a","b","c","d","e","f"};
-//		for (int i = 0; i < 6; i++) {
-//			for (int j = 0; j < 6; j++) {
-//				System.out.println(datas.replaceAll("@", se[i]).replaceAll("#", se[i]));
-//				System.out.println();
-//			}
-//		}
+//		String[] datas = "3de0 7d3c 6d47 53dd".split(" ");
+//		sort(Arrays.asList(datas), new ArrayList());
 //	}
+	
+	public static void main(String[] args) {
+		String datas = "edd8@825fb#89f0c";
+//		String [] se = {"a","b","c","d","e","f"};
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				System.out.println(datas.replaceAll("@", i+"").replaceAll("#", j+""));
+				System.out.println();
+			}
+		}
+	}
 
 }
