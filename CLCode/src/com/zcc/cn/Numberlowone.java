@@ -3,9 +3,9 @@ package com.zcc.cn;
 public class Numberlowone {
 	public static void main(String[] args) {
 
-		numberAddsomeLists("1aaeb20d831cf710", 1);
-		System.out.println("******************************");
-		charAddsomeLists("1aaeb20d831cf710", 3);
+		numberAddsomeLists("352830eec7509cd8", -1);
+//		System.out.println("******************************");
+//		charAddsomeLists("1aaeb20d831cf710", 3);
 	}
 
 	/**
