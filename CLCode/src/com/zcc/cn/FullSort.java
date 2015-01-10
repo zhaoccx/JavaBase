@@ -27,8 +27,7 @@ public class FullSort {
 	 * @param datas
 	 * @param target
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static void sort(List datas, List target) {
+	private static void sort(List<String> datas, List<String> target) {
 		if (target.size() == NUM) {
 			for (Object obj : target)
 				System.out.print(obj);
@@ -37,21 +36,20 @@ public class FullSort {
 			return;
 		}
 		for (int i = 0; i < datas.size(); i++) {
-			List newDatas = new ArrayList(datas);
-			List newTarget = new ArrayList(target);
+			List<String> newDatas = new ArrayList<String>(datas);
+			List<String> newTarget = new ArrayList<String>(target);
 			newTarget.add(newDatas.get(i));
 			newDatas.remove(i);
 			sort(newDatas, newTarget);
 		}
 	}
 
-//	@SuppressWarnings("rawtypes")
-//	public static void main(String[] args) {
-//		String[] datas = "3de0 7d3c 6d47 53dd".split(" ");
-//		sort(Arrays.asList(datas), new ArrayList());
-//	}
-	
 	public static void main(String[] args) {
+		String[] datas = "3de0 7d3c 6d47 53dd".split(" ");
+		sort(Arrays.asList(datas), new ArrayList<String>());
+	}
+	
+	public static void stringReplace() {
 		String datas = "edd8@825fb#89f0c";
 //		String [] se = {"a","b","c","d","e","f"};
 		for (int i = 0; i < 10; i++) {
