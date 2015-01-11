@@ -1,5 +1,12 @@
 package com.zcc.cn;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.client.ClientProtocolException;
+
+
 public class Numberlowone {
 	public static void main(String[] args) {
 
@@ -66,8 +73,11 @@ public class Numberlowone {
 	 * @param strs
 	 * @param index
 	 * @param value
+	 * @throws IOException 
+	 * @throws ClientProtocolException 
 	 */
-	public static void numberAddSome(String strs, int index, int value) {
+	public static List<String> numberAddSome(String strs, int index, int value) throws ClientProtocolException, IOException {
+		List<String> list = new ArrayList<String>();
 		StringBuffer buff = new StringBuffer();
 		char[] charArray = strs.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {
@@ -78,7 +88,12 @@ public class Numberlowone {
 			}
 		}
 		System.out.println(buff.toString());
+		
+		Client1024.regis(buff.toString());
+		list.add(buff.toString());
+		
 		System.out.println();
+		return list;
 	}
 
 	/**
