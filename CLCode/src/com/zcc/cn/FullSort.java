@@ -20,6 +20,9 @@ import java.util.List;
 public class FullSort {
 	// 将NUM设置为待排列数组的长度即实现全排列
 	private static int NUM = 4;
+	private static List<String> targets=new ArrayList<String>();
+//	private static String temp = "";
+	private static List<String> lis= new ArrayList<String>();
 
 	/**
 	 * 递归算法：将数据分为两部分，递归将数据从左侧移右侧实现全排列
@@ -28,9 +31,14 @@ public class FullSort {
 	 * @param target
 	 */
 	private static void sort(List<String> datas, List<String> target) {
+		
 		if (target.size() == NUM) {
-			for (Object obj : target)
+			String temp="";
+			for (Object obj : target){
 				System.out.print(obj);
+				temp+=obj;
+			}
+			targets.add(temp);
 			System.out.println();
 			System.out.println();
 			return;
@@ -45,19 +53,72 @@ public class FullSort {
 	}
 
 	public static void main(String[] args) {
-		String[] datas = "3de0 7d3c 6d47 53dd".split(" ");
+//		 String[] datas = "8621 618c a587 228f".split(" ");
+//		 sort(Arrays.asList(datas), new ArrayList<String>());
+		stringReplace();
+		for (String string : targets) {
+			System.out.println(string + "SSS");
+		}
+	}
+
+	public static List<String> getList(String str){
+//		List<String> list = new ArrayList<String>();
+		String[] datas = "str".split(" ");
 		sort(Arrays.asList(datas), new ArrayList<String>());
+		
+		return null;
 	}
 	
+	
+	
 	public static void stringReplace() {
-		String datas = "edd8@825fb#89f0c";
-//		String [] se = {"a","b","c","d","e","f"};
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
-				System.out.println(datas.replaceAll("@", i+"").replaceAll("#", j+""));
+		String string1;
+		String string2;
+		String datas = "6ac8 7@b3 d020 c#ef";
+		String[] se = { "a", "b", "c", "d", "e", "f" };
+		for (int i = 0; i < 16; i++) {
+			for (int j = 0; j < 16; j++) {
+				if (i >= 10) {
+					string1 =se[i-10];
+				}else{
+					string1 = i+"";
+				}
+				if (j >= 10) {
+					string2 =se[j-10];
+				}else{
+					string2 = j+"";
+				}
+				getList(datas.replaceAll("@", string1).replaceAll("#", string2));
+				System.out.println(datas.replaceAll("@", string1).replaceAll("#", string2));
 				System.out.println();
 			}
 		}
+	}
+	
+	public static List<String> stringReplace(String datas) {
+		List<String> list = new ArrayList<String>();
+		String string1;
+		String string2;
+//		String datas = "6ac8 7@b3 d020 c#ef";
+		String[] se = { "a", "b", "c", "d", "e", "f" };
+		for (int i = 0; i < 16; i++) {
+			for (int j = 0; j < 16; j++) {
+				if (i >= 10) {
+					string1 =se[i-10];
+				}else{
+					string1 = i+"";
+				}
+				if (j >= 10) {
+					string2 =se[j-10];
+				}else{
+					string2 = j+"";
+				}
+				System.out.println(datas.replaceAll("@", string1).replaceAll("#", string2));
+				System.out.println();
+				list.add(datas.replaceAll("@", string1).replaceAll("#", string2));
+			}
+		}
+		return list;
 	}
 
 }
