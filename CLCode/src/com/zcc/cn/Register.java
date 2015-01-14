@@ -3,6 +3,7 @@ package com.zcc.cn;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -24,18 +25,24 @@ public class Register {
 	private HttpClient httpClient = new DefaultHttpClient();
 	private HttpPost httpPost = new HttpPost("http://cl.org.ru/register.php");
 	private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-DD-MM HH:mm:ss.S");
+	private final String[] allChars = new String[] { "0", "f", "1", "e", "2", "d", "3", "c", "4", "b", "5", "a", "6", "9", "7", "8" };
+	private final String[] chars = new String[] { "f", "a", "b", "e", "c", "d" };
+	private final String[] numbers = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4" };
 
 	public static void main(String[] args) {
 		Register register = new Register();
 		List<String> lists = null;
 		// 数字加某一个加some
 		// lists = register.numberAddsomeGetLists("af9dc8e65dd00900", -1);
-		lists = register.charAddsomeGetLists("af9dc8e65dd00900", -1);
-		// lists = register.hideTwoCharOrNumber("af9d@8e65d@00900", "@");
-
-		register.registerList(lists);
-		// System.out.println(lists);
-		// System.out.println(lists.size());
+		// String[] datas = "31@3 fae3 a741 7@6d".split(" ");
+		// lists = register.charAddsomeGetLists("8a6@ef174", -1);
+		lists = register.hideTwoCharOrNumber("af9d@8e65d@00900", "@");
+		// lists = register.sort(Arrays.asList(datas), new ArrayList<String>(),
+		// new ArrayList<String>());
+		// lists = register.sortAndHidOneString("31@3 fae3 a741 746d", "@");
+		// register.registerList(lists);
+		System.out.println(lists);
+		System.out.println(lists.size());
 	}
 
 	/**
@@ -97,7 +104,7 @@ public class Register {
 				String source = new String(EntityUtils.toString(entity).getBytes("iso-8859-1"), "gbk");
 				if (!source.contains("邀請碼錯誤") && !source.contains("刷新不要快於 2 秒")) {
 					System.out.println(source);
-					System.err.println("成功注册,注册码为：" + invcode +dateformat.format(new Date()));
+					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
 					System.err.println("成功注册,注册码为：" + invcode);
 					System.err.println("成功注册,注册码为：" + invcode);
 					System.err.println("成功注册,注册码为：" + invcode);
@@ -108,7 +115,7 @@ public class Register {
 					System.exit(0);
 					return true;
 				} else {
-					System.out.println(invcode + " 已经注册了 "+dateformat.format(new Date()));
+					System.out.println(invcode + " 已经注册了 " + dateformat.format(new Date()));
 				}
 				Thread.sleep(500);
 			} catch (ClientProtocolException cle) {
@@ -119,14 +126,14 @@ public class Register {
 				System.out.println("IO有异常了。");
 			}
 		}
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了"+dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
 		end = Calendar.getInstance();
 		System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
 		return false;
@@ -260,14 +267,11 @@ public class Register {
 	 */
 	public List<String> hideOneChar(String invcode, String charValue) {
 		List<String> invcodelists = new ArrayList<String>();
-		String[] chars = new String[] { "a", "b", "c", "d", "e", "f" };
 		for (int i = 0; i < chars.length; i++) {
 			invcodelists.add(invcode.replaceFirst(charValue, chars[i]));
 		}
 		return invcodelists;
 	}
-
-	String[] charslist = new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
 	/**
 	 * 隐藏一个数字
@@ -280,9 +284,25 @@ public class Register {
 	 */
 	public List<String> hideOneNumber(String invcode, String charValue) {
 		List<String> invcodelists = new ArrayList<String>();
-		String[] chars = new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-		for (int i = 0; i < chars.length; i++) {
-			invcodelists.add(invcode.replaceFirst(charValue, chars[i]));
+		for (int i = 0; i < numbers.length; i++) {
+			invcodelists.add(invcode.replaceFirst(charValue, numbers[i]));
+		}
+		return invcodelists;
+	}
+
+	/**
+	 * 隐藏一个字符
+	 * 
+	 * @param invcode
+	 *            源邀请码
+	 * @param charValue
+	 *            源字符
+	 * @return
+	 */
+	public List<String> hideOneNumberOrChar(String invcode, String charValue) {
+		List<String> invcodelists = new ArrayList<String>();
+		for (int i = 0; i < allChars.length; i++) {
+			invcodelists.add(invcode.replaceFirst(charValue, allChars[i]));
 		}
 		return invcodelists;
 	}
@@ -298,10 +318,9 @@ public class Register {
 	 */
 	public List<String> hideTwoNumber(String invcode, String charValue) {
 		List<String> invcodelists = new ArrayList<String>();
-		String[] chars = new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-		for (int index = 0; index < chars.length; index++) {
-			for (int indextwo = 0; indextwo < chars.length; indextwo++) {
-				invcodelists.add(invcode.replaceFirst(charValue, chars[index]).replaceFirst(charValue, chars[indextwo]));
+		for (int index = 0; index < numbers.length; index++) {
+			for (int indextwo = 0; indextwo < numbers.length; indextwo++) {
+				invcodelists.add(invcode.replaceFirst(charValue, numbers[index]).replaceFirst(charValue, numbers[indextwo]));
 			}
 		}
 		return invcodelists;
@@ -318,7 +337,6 @@ public class Register {
 	 */
 	public List<String> hideTwoChar(String invcode, String charValue) {
 		List<String> invcodelists = new ArrayList<String>();
-		String[] chars = new String[] { "a", "b", "c", "d", "e", "f" };
 		for (int index = 0; index < chars.length; index++) {
 			for (int indextwo = 0; indextwo < chars.length; indextwo++) {
 				invcodelists.add(invcode.replaceFirst(charValue, chars[index]).replaceFirst(charValue, chars[indextwo]));
@@ -338,12 +356,91 @@ public class Register {
 	 */
 	public List<String> hideTwoCharOrNumber(String invcode, String charValue) {
 		List<String> invcodelists = new ArrayList<String>();
-		String[] chars = new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
-		for (int index = 0; index < chars.length; index++) {
-			for (int indextwo = 0; indextwo < chars.length; indextwo++) {
-				invcodelists.add(invcode.replaceFirst(charValue, chars[index]).replaceFirst(charValue, chars[indextwo]));
+		for (int index = 0; index < allChars.length; index++) {
+			for (int indextwo = 0; indextwo < allChars.length; indextwo++) {
+				invcodelists.add(invcode.replaceFirst(charValue, allChars[index]).replaceFirst(charValue, allChars[indextwo]));
 			}
 		}
 		return invcodelists;
+	}
+
+	/**
+	 * 全排列
+	 * 
+	 * @param datas
+	 * @param target
+	 * @param targets
+	 * @return
+	 */
+	public List<String> sort(List<String> datas, List<String> target, List<String> targets) {
+		if (target.size() == 4) {
+			String temp = "";
+			for (Object obj : target) {
+				temp += obj;
+			}
+			targets.add(temp);
+			return targets;
+		}
+		for (int i = 0; i < datas.size(); i++) {
+			List<String> newDatas = new ArrayList<String>(datas);
+			List<String> newTarget = new ArrayList<String>(target);
+			newTarget.add(newDatas.get(i));
+			newDatas.remove(i);
+			sort(newDatas, newTarget, targets);
+		}
+		return targets;
+	}
+
+	/**
+	 * 全排列
+	 * 
+	 * @param invcode
+	 * @return
+	 */
+	public List<String> sortInvcode(String invcode) {
+		List<String> lists = new ArrayList<String>();
+		String[] datas = invcode.split(" ");
+		lists.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
+		return lists;
+	}
+
+	/**
+	 * 隐藏一个字符并分成四组，打乱顺序
+	 * 
+	 * @param invcode
+	 *            源邀请码
+	 * @param charValue
+	 *            隐藏字符
+	 * @return
+	 */
+	public List<String> sortAndHidOneString(String invcode, String charValue) {
+		List<String> replacelist = new ArrayList<String>();
+		List<String> alllists = new ArrayList<String>();
+		replacelist = hideOneNumberOrChar(invcode, charValue);
+		for (String list : replacelist) {
+			String[] datas = list.split(" ");
+			alllists.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
+		}
+		return alllists;
+	}
+
+	/**
+	 * 隐藏两个字符并分成四组，打乱顺序
+	 * 
+	 * @param invcode
+	 *            源邀请码
+	 * @param charValue
+	 *            隐藏字符
+	 * @return
+	 */
+	public List<String> sortAndHidTwoString(String invcode, String charValue) {
+		List<String> replacelist = new ArrayList<String>();
+		List<String> alllists = new ArrayList<String>();
+		replacelist = hideTwoCharOrNumber(invcode, charValue);
+		for (String list : replacelist) {
+			String[] datas = list.split(" ");
+			alllists.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
+		}
+		return alllists;
 	}
 }

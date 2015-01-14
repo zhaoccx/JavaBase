@@ -33,12 +33,9 @@ public class FullSort {
 	private static void sort(List<String> datas, List<String> target) {
 		System.err.println(System.currentTimeMillis());
 		if (target.size() == NUM) {
-			String temp="";
 			for (Object obj : target){
 				System.out.print(obj);
-				temp+=obj;
 			}
-			targets.add(temp);
 			System.out.println();
 			return;
 		}
@@ -52,7 +49,7 @@ public class FullSort {
 	}
 
 	public static void main(String[] args) {
-		 String[] datas = "8621 618c a587 228f".split(" ");
+		 String[] datas = "3173 fae3 a741 796d".split(" ");
 		 sort(Arrays.asList(datas), new ArrayList<String>());
 //		stringReplace();
 //		for (String string : targets) {
