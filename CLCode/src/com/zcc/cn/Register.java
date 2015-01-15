@@ -25,32 +25,42 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+/**
+ * 用于注册的类
+ * 
+ * @author Andy
+ */
 public class Register {
 	/**
 	 * 客气端对象
 	 */
 	private HttpClient httpClient = new DefaultHttpClient();
+	/**
+	 * 注册地址
+	 */
 	private HttpPost httpPost = new HttpPost("http://cl.org.ru/register.php");
+	/**
+	 * 时间格式化样式
+	 */
 	private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-DD-MM HH:mm:ss.S");
+	/**
+	 * 所有字符数组
+	 */
 	private final String[] allChars = new String[] { "0", "f", "1", "e", "2", "d", "3", "c", "4", "b", "5", "a", "6", "9", "7", "8" };
+	/**
+	 * 字母数组
+	 */
 	private final String[] chars = new String[] { "f", "a", "b", "e", "c", "d" };
+	/**
+	 * 数字数组
+	 */
 	private final String[] numbers = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4" };
 
 	public static void main(String[] args) {
 		Register register = new Register();
 		Collection<String> lists = null;
-		// 数字加某一个加some
-		// lists = register.numberAddsomeGetLists("af9dc8e65dd00900", -1);
-		// String[] datas = "31@3 fae3 a741 7@6d".split(" ");
-		// lists = register.charAddsomeGetLists("8a6@ef174", -1);
-		// lists =
 		lists = register.sortAndHidTwoStringWithOneCharAndOneNumber("af9d @8e6 5d@0 0900", "@");
-		// lists = register.sortAndHidTwoString("af9d @8e6 5d@0 0900", "@");
-		// lists = register.sort(Arrays.asList(datas), new
-		// ArrayList<String>(),
-		// new ArrayList<String>());
-		// lists = register.sortAndHidOneString("31@3 fae3 a741 746d", "@");
-		register.registerList(lists);
+		// register.registerList(lists);
 		System.out.println(lists);
 		System.out.println(lists.size());
 	}
@@ -86,7 +96,7 @@ public class Register {
 			System.exit(0);
 			return true;
 		} else {
-			System.out.println(invcode + " 已经注册了 " + dateformat.format(new Date()));
+			System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() + dateformat.format(new Date()));
 		}
 		return false;
 	}
@@ -125,7 +135,7 @@ public class Register {
 					System.exit(0);
 					return true;
 				} else {
-					System.out.println(invcode + " 已经注册了 " + dateformat.format(new Date()));
+					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() + dateformat.format(new Date()));
 				}
 				Thread.sleep(500);
 			} catch (ClientProtocolException cle) {
@@ -386,20 +396,12 @@ public class Register {
 	public Collection<String> hideTwoStringWithOneCharAndOneNumber(String invcode, String charValue) {
 		String[] allChar = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4", "f", "a", "e", "b", "d", "c" };
 		Set<String> invcodelists = new HashSet<String>();
-		for (int index = 0; index < 10; index++) {
-			for (int indextwo = 10; indextwo < allChar.length; indextwo++) {
-				invcodelists.add(invcode.replaceFirst(charValue, allChar[index]).replaceFirst(charValue, allChar[indextwo]));
-				invcodelists.add(invcode.replaceFirst(charValue, allChar[index]).replaceFirst(charValue, allChar[indextwo]));
+		for (int index = 0; index < allChar.length; index++) {
+			for (int indextwo = 0; indextwo < allChar.length; indextwo++) {
+				if ((index < 10 && indextwo >= 10) || (index >= 10 && indextwo < 10))
+					invcodelists.add(invcode.replaceFirst(charValue, allChar[index]).replaceFirst(charValue, allChar[indextwo]));
 			}
 		}
-		for (int index = 10; index < allChar.length; index++) {
-			for (int indextwo = 0; indextwo < 10; indextwo++) {
-				invcodelists.add(invcode.replaceFirst(charValue, allChar[index]).replaceFirst(charValue, allChar[indextwo]));
-				invcodelists.add(invcode.replaceFirst(charValue, allChar[index]).replaceFirst(charValue, allChar[indextwo]));
-			}
-		}
-
-		System.out.println(invcodelists.size());
 		return invcodelists;
 	}
 
