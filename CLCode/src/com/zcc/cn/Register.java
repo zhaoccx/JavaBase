@@ -21,6 +21,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+
 public class Register {
 	private HttpClient httpClient = new DefaultHttpClient();
 	private HttpPost httpPost = new HttpPost("http://cl.org.ru/register.php");
@@ -29,20 +30,10 @@ public class Register {
 	private final String[] chars = new String[] { "f", "a", "b", "e", "c", "d" };
 	private final String[] numbers = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4" };
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClientProtocolException, IOException {
 		Register register = new Register();
-		List<String> lists = null;
-		// 数字加某一个加some
-		// lists = register.numberAddsomeGetLists("af9dc8e65dd00900", -1);
-		// String[] datas = "31@3 fae3 a741 7@6d".split(" ");
-		// lists = register.charAddsomeGetLists("8a6@ef174", -1);
-		lists = register.hideTwoCharOrNumber("af9d@8e65d@00900", "@");
-		// lists = register.sort(Arrays.asList(datas), new ArrayList<String>(),
-		// new ArrayList<String>());
-		// lists = register.sortAndHidOneString("31@3 fae3 a741 746d", "@");
-		// register.registerList(lists);
-		System.out.println(lists);
-		System.out.println(lists.size());
+		List<String> sortAndHidTwoString = register.sortAndHidTwoString("eda@ 893f 736@ 83ab", "@");
+		System.out.println(sortAndHidTwoString.size());
 	}
 
 	/**
@@ -54,7 +45,7 @@ public class Register {
 	 * @throws IOException
 	 * @throws ClientProtocolException
 	 */
-	public boolean registerSingle(String invcode) throws ClientProtocolException, IOException {
+	public boolean registerSingles(String invcode) throws ClientProtocolException, IOException {
 		// 邀请码
 		httpPost.setEntity(setPatams(invcode.toLowerCase()));
 		HttpResponse httpResponse = null;
@@ -442,5 +433,13 @@ public class Register {
 			alllists.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
 		}
 		return alllists;
+	}
+
+	public Register() {
+
+	}
+
+	public Register(String invcode, String charValue) {
+
 	}
 }
