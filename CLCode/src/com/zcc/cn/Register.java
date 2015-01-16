@@ -673,17 +673,17 @@ public class Register {
 			System.out.println(x);
 		}
 
-//		ExecutorService pool = Executors.newFixedThreadPool(lists.size());
-//
-//		List<Future<String>> fList = new ArrayList<Future<String>>();
-//
-//		for (int inds = 0; inds < lists.size(); inds++) {
-//			fList.add(pool.submit(new Register.ReadRegister(lists, Integer.valueOf(inds), arryLists.get(inds))));
-//		}
-//		
-//		for (Future<String> future : fList) {
-//			System.out.println(future);
-//		}
+		ExecutorService pool = Executors.newFixedThreadPool(lists.size());
+
+		List<Future<String>> fList = new ArrayList<Future<String>>();
+
+		for (int inds = 0; inds < lists.size(); inds++) {
+			fList.add(pool.submit(new Register.ReadRegister(lists, Integer.valueOf(inds), arryLists.get(inds))));
+		}
+		
+		for (Future<String> future : fList) {
+			System.out.println(future);
+		}
 	}
 
 	class ReadRegister implements Callable<String> {
