@@ -11,6 +11,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -39,6 +43,7 @@ public class Register {
 	 * 注册地址
 	 */
 	private HttpPost httpPost = new HttpPost("http://cl.org.ru/register.php");
+
 	/**
 	 * 时间格式化样式
 	 */
@@ -57,14 +62,18 @@ public class Register {
 	private final String[] numbers = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4" };
 
 	public static void main(String[] args) {
-		CopyOfRegister register = new CopyOfRegister();
-		Collection<String> lists = null;
-		lists = register.sortAndHidTwoStringWithOneCharAndOneNumber("af9d @8e6 5d@0 0900", "@");
-
-		register.sortAndHidTwoStringWithOneCharAndOneNumber("3@f0 @24c a14c 829f", "@");
-		register.registerList(lists);
+		Register register = new Register();
+		// Collection<String> lists = null;
+		// lists =
+		// register.sortAndHidTwoStringWithOneCharAndOneNumber("af9d @8e6 5d@0 0900",
+		// "@");
+		//
+		// register.sortAndHidTwoStringWithOneCharAndOneNumber("3@f0 @24c a14c 829f",
+		// "@");
+		// register.registerList(lists);
 		// System.out.println(lists);
 		// System.out.println(lists.size());
+		register.findRegisterMainMethed();
 	}
 
 	/**
@@ -376,8 +385,8 @@ public class Register {
 	 *            源字符
 	 * @return
 	 */
-	public Collection<String> hideTwoCharOrNumber(String invcode, String charValue) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> hideTwoCharOrNumber(String invcode, String charValue) {
+		List<String> invcodeSet = new ArrayList<String>();
 		for (int index = 0; index < allChars.length; index++) {
 			for (int indextwo = 0; indextwo < allChars.length; indextwo++) {
 				invcodeSet.add(invcode.replaceFirst(charValue, allChars[index]).replaceFirst(charValue, allChars[indextwo]));
@@ -495,9 +504,9 @@ public class Register {
 	 *            隐藏字符
 	 * @return
 	 */
-	public Collection<String> sortAndHidOneString(String invcode, String charValue) {
+	public List<String> sortAndHidOneString(String invcode, String charValue) {
 		Collection<String> replaceSet = new HashSet<String>();
-		Collection<String> allSet = new HashSet<String>();
+		List<String> allSet = new ArrayList<String>();
 		replaceSet = hideOneNumberOrChar(invcode, charValue);
 		for (String list : replaceSet) {
 			String[] datas = list.split(" ");
@@ -515,9 +524,9 @@ public class Register {
 	 *            隐藏字符
 	 * @return
 	 */
-	public Collection<String> sortAndHidTwoString(String invcode, String charValue) {
+	public List<String> sortAndHidTwoString(String invcode, String charValue) {
 		Collection<String> replaceSet = new HashSet<String>();
-		Collection<String> allSet = new HashSet<String>();
+		List<String> allSet = new ArrayList<String>();
 		replaceSet = hideTwoCharOrNumber(invcode, charValue);
 		for (String list : replaceSet) {
 			String[] datas = list.split(" ");
@@ -545,4 +554,101 @@ public class Register {
 		}
 		return alllists;
 	}
+
+	/**
+	 * 自己要手动去试试
+	 * 
+	 * @return
+	 */
+	public List<String> getList() {
+		List<String> list = new ArrayList<String>();
+		list.add("http://" + "x.nh50.com         ".trim() + "/register.php");
+		list.add("http://" + "wo.yao.cl          ".trim() + "/register.php");
+		list.add("http://" + "u.lovecaoliu.pw    ".trim() + "/register.php");
+		list.add("http://" + "bb.69.mu           ".trim() + "/register.php");
+		list.add("http://" + "no.fzmov.com       ".trim() + "/register.php");
+		list.add("http://" + "1024.ns02.biz      ".trim() + "/register.php");
+		list.add("http://" + "cl.cf.gs           ".trim() + "/register.php");
+		list.add("http://" + "5.yao.cl           ".trim() + "/register.php");
+		list.add("http://" + "10240.tk           ".trim() + "/register.php");
+		list.add("http://" + "cl.yyq.im          ".trim() + "/register.php");
+		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+		list.add("http://" + "zlvc.net           ".trim() + "/register.php");
+		list.add("http://" + "cl.gmf.cl          ".trim() + "/register.php");
+		list.add("http://" + "1024.now.im        ".trim() + "/register.php");
+		list.add("http://" + "re.aemxs.com       ".trim() + "/register.php");
+		list.add("http://" + "wazh.uni.me        ".trim() + "/register.php");
+		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+		list.add("http://" + "www.gfw74.tk       ".trim() + "/register.php");
+		list.add("http://" + "wo.clsq1024.pw     ".trim() + "/register.php");
+		list.add("http://" + "www.xiaocao.in     ".trim() + "/register.php");
+		list.add("http://" + "caoliuwang.info    ".trim() + "/register.php");
+		list.add("http://" + "cl.591mn.com       ".trim() + "/register.php");
+		list.add("http://" + "cl.org.ru          ".trim() + "/register.php");
+		list.add("http://" + "1025.tv            ".trim() + "/register.php");
+		list.add("http://" + "1025.la            ".trim() + "/register.php");
+		list.add("http://" + "1025.me            ".trim() + "/register.php");
+		list.add("http://" + "1025.xyz           ".trim() + "/register.php");
+		list.add("http://" + "woge.xyz           ".trim() + "/register.php");
+		list.add("http://" + "i.phonc.com        ".trim() + "/register.php");
+		list.add("http://" + "zx0734.com         ".trim() + "/register.php");
+		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+		for (String string : list) {
+			System.out.println(string);
+		}
+		return list;
+	}
+
+	public void findRegisterMainMethed() {
+		List<List<String>> arryLists = new ArrayList<List<String>>();
+		List<String> childList = null;
+		List<String> lists = this.getList();
+		List<String> collection = this.sortAndHidTwoString("12ae @542 87@0 3546", "@");
+		System.out.println(collection.size());
+		int length = collection.size() / lists.size();
+		System.out.println(length);
+		System.out.println(lists.size());
+		for (int index = 0; index < lists.size(); index++) {
+			childList = new ArrayList<String>();
+			if (index < lists.size() - 1) {
+				childList = collection.subList(index * length, index * length + length);
+			} else {
+				childList = collection.subList(index * length, collection.size());
+			}
+			arryLists.add(childList);
+		}
+
+		int x = 0;
+		for (int ins = 0; ins < arryLists.size(); ins++) {
+			System.out.println(arryLists.get(ins));
+			System.out.println(arryLists.get(ins).size());
+			x += arryLists.get(ins).size();
+			System.out.println(x);
+		}
+
+		ExecutorService pool = Executors.newFixedThreadPool(lists.size());
+
+		List<Future<String>> fList = new ArrayList<Future<String>>();
+
+		for (int inds = 0; inds < lists.size(); inds++) {
+			fList.add(pool.submit(new Register.ReadRegister()));
+		}
+	}
+
+	class ReadRegister implements Callable<String> {
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see java.util.concurrent.Callable#call()
+		 */
+		@Override
+		public String call() throws Exception {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
+
 }
