@@ -60,9 +60,11 @@ public class Register {
 		Register register = new Register();
 		Collection<String> lists = null;
 		lists = register.sortAndHidTwoStringWithOneCharAndOneNumber("af9d @8e6 5d@0 0900", "@");
-		// register.registerList(lists);
-		System.out.println(lists);
-		System.out.println(lists.size());
+
+		register.sortAndHidTwoStringWithOneCharAndOneNumber("9a@a d9a5 7c@0 2dd3", "@");
+		register.registerList(lists);
+		// System.out.println(lists);
+		// System.out.println(lists.size());
 	}
 
 	/**
