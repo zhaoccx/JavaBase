@@ -20,9 +20,6 @@ import java.util.List;
 public class FullSort {
 	// 将NUM设置为待排列数组的长度即实现全排列
 	private static int NUM = 4;
-	private static List<String> targets=new ArrayList<String>();
-//	private static String temp = "";
-	private static List<String> lis= new ArrayList<String>();
 
 	/**
 	 * 递归算法：将数据分为两部分，递归将数据从左侧移右侧实现全排列
