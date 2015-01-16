@@ -121,7 +121,7 @@ public class Register {
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
-	public boolean registerList(Collection<String> list) {
+	public boolean registerList(List<String> list) {
 		Calendar start = Calendar.getInstance();
 		Calendar end = null;
 		for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
@@ -168,6 +168,52 @@ public class Register {
 		end = Calendar.getInstance();
 		System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
 		return false;
+	}
+
+	/**
+	 * 注册数组
+	 * 
+	 * @param list
+	 * @return
+	 * @throws ClientProtocolException
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	public String registerList(List<String> list, String url, int index) {
+		HttpPost myPost = new HttpPost(url);
+		Calendar start = Calendar.getInstance();
+		Calendar end = null;
+		for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
+			try {
+				String invcode = iterator.next();
+				HttpResponse httpResponse = null;
+				httpClient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.BEST_MATCH);
+				myPost.setEntity(setPatams(invcode.toLowerCase()));
+				httpResponse = httpClient.execute(myPost);
+				HttpEntity entity = httpResponse.getEntity();
+				String source = new String(EntityUtils.toString(entity).getBytes("iso-8859-1"), "gbk");
+				if (!source.contains("邀請碼錯誤") && !source.contains("刷新不要快於 2 秒")) {
+					System.out.println(source);
+					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
+					end = Calendar.getInstance();
+					System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
+					return invcode;
+				} else {
+					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() + dateformat.format(new Date()));
+				}
+				Thread.sleep(400);
+			} catch (ClientProtocolException cle) {
+				System.out.println("客户端《----------》浏览器异常");
+			} catch (InterruptedException e) {
+				System.out.println("线程有异常");
+			} catch (IOException e) {
+				System.out.println("IO有异常了。");
+			}
+		}
+		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
+		end = Calendar.getInstance();
+		System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
+		return url;
 	}
 
 	/**
@@ -627,16 +673,34 @@ public class Register {
 			System.out.println(x);
 		}
 
-		ExecutorService pool = Executors.newFixedThreadPool(lists.size());
-
-		List<Future<String>> fList = new ArrayList<Future<String>>();
-
-		for (int inds = 0; inds < lists.size(); inds++) {
-			fList.add(pool.submit(new Register.ReadRegister()));
-		}
+//		ExecutorService pool = Executors.newFixedThreadPool(lists.size());
+//
+//		List<Future<String>> fList = new ArrayList<Future<String>>();
+//
+//		for (int inds = 0; inds < lists.size(); inds++) {
+//			fList.add(pool.submit(new Register.ReadRegister(lists, Integer.valueOf(inds), arryLists.get(inds))));
+//		}
+//		
+//		for (Future<String> future : fList) {
+//			System.out.println(future);
+//		}
 	}
 
 	class ReadRegister implements Callable<String> {
+		private List<String> URLS = null;
+		private Integer index = null;
+		private List<String> registersList = null;
+
+		/**
+		 * @param lists
+		 * @param string
+		 * @param arryLists
+		 */
+		public ReadRegister(List<String> lists, Integer index, List<String> arryLists) {
+			this.URLS = lists;
+			this.index = index;
+			this.registersList = arryLists;
+		}
 
 		/*
 		 * (non-Javadoc)
@@ -645,8 +709,8 @@ public class Register {
 		 */
 		@Override
 		public String call() throws Exception {
-			// TODO Auto-generated method stub
-			return null;
+			Register register = new Register();
+			return register.registerList(this.registersList, this.URLS.get(this.index), this.index);
 		}
 
 	}
