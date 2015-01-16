@@ -179,8 +179,8 @@ public class Register {
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
-	public String registerList(List<String> list, String url, int index) {
-		HttpPost myPost = new HttpPost(url);
+	public String registerList(List<String> list, List<String> url, int index) {
+		HttpPost myPost = new HttpPost(url.get(index));
 		Calendar start = Calendar.getInstance();
 		Calendar end = null;
 		for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
@@ -199,28 +199,28 @@ public class Register {
 					System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
 					return invcode;
 				} else {
-					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() +" "+ url + dateformat.format(new Date()));
+					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() + " " + url.get(index) + "  " + dateformat.format(new Date()));
+					list.remove(invcode);
 				}
+				Thread.sleep(400);
 			} catch (ClientProtocolException cle) {
 				System.out.println("客户端《----------》浏览器异常");
-				try {
-					Thread.sleep(1000);
-					Thread.yield();
-				} catch (InterruptedException e1) {
-				}
-			} catch  (IOException e) {
+			} catch (IOException e) {
 				System.out.println("IO有异常了。");
-				try {
-					Thread.sleep(1000);
-					Thread.yield();
-				} catch (InterruptedException e1) {
+				if (index == url.size() - 1) {
+					index = 0;
+				} else {
+					index++;
 				}
+				return registerList(list, url, index);
+			} catch (InterruptedException e) {
+				System.err.println("线程死了。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。");
 			}
 		}
 		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
 		end = Calendar.getInstance();
 		System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
-		return url;
+		return url.get(index);
 	}
 
 	/**
@@ -618,35 +618,35 @@ public class Register {
 		list.add("http://" + "x.nh50.com         ".trim() + "/register.php");
 		list.add("http://" + "wo.yao.cl          ".trim() + "/register.php");
 		list.add("http://" + "clcl.ch            ".trim() + "/register.php");
-//		list.add("http://" + "bb.69.mu           ".trim() + "/register.php");
+		// list.add("http://" + "bb.69.mu           ".trim() + "/register.php");
 		list.add("http://" + "no.fzmov.com       ".trim() + "/register.php");
-//		list.add("http://" + "1024.ns02.biz      ".trim() + "/register.php");
-//		list.add("http://" + "cl.cf.gs           ".trim() + "/register.php");
-//		list.add("http://" + "5.yao.cl           ".trim() + "/register.php");
+		// list.add("http://" + "1024.ns02.biz      ".trim() + "/register.php");
+		// list.add("http://" + "cl.cf.gs           ".trim() + "/register.php");
+		// list.add("http://" + "5.yao.cl           ".trim() + "/register.php");
 		list.add("http://" + "10240.tk           ".trim() + "/register.php");
-//		list.add("http://" + "cl.yyq.im          ".trim() + "/register.php");
-//		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
-//		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
-//		list.add("http://" + "zlvc.net           ".trim() + "/register.php");
-//		list.add("http://" + "cl.gmf.cl          ".trim() + "/register.php");
-//		list.add("http://" + "1024.now.im        ".trim() + "/register.php");
-//		list.add("http://" + "re.aemxs.com       ".trim() + "/register.php");
+		// list.add("http://" + "cl.yyq.im          ".trim() + "/register.php");
+		// list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+		// list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+		// list.add("http://" + "zlvc.net           ".trim() + "/register.php");
+		// list.add("http://" + "cl.gmf.cl          ".trim() + "/register.php");
+		// list.add("http://" + "1024.now.im        ".trim() + "/register.php");
+		// list.add("http://" + "re.aemxs.com       ".trim() + "/register.php");
 		list.add("http://" + "wazh.uni.me        ".trim() + "/register.php");
-//		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+		// list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
 		list.add("http://" + "www.gfw74.tk       ".trim() + "/register.php");
 		list.add("http://" + "wo.clsq1024.pw     ".trim() + "/register.php");
 		list.add("http://" + "www.xiaocao.in     ".trim() + "/register.php");
-//		list.add("http://" + "caoliuwang.info    ".trim() + "/register.php");
+		// list.add("http://" + "caoliuwang.info    ".trim() + "/register.php");
 		list.add("http://" + "cl.591mn.com       ".trim() + "/register.php");
 		list.add("http://" + "cl.org.ru          ".trim() + "/register.php");
-//		list.add("http://" + "1025.tv            ".trim() + "/register.php");
-//		list.add("http://" + "1025.la            ".trim() + "/register.php");
-//		list.add("http://" + "1025.me            ".trim() + "/register.php");
+		// list.add("http://" + "1025.tv            ".trim() + "/register.php");
+		// list.add("http://" + "1025.la            ".trim() + "/register.php");
+		// list.add("http://" + "1025.me            ".trim() + "/register.php");
 		list.add("http://" + "1025.xyz           ".trim() + "/register.php");
 		list.add("http://" + "woge.xyz           ".trim() + "/register.php");
-//		list.add("http://" + "i.phonc.com        ".trim() + "/register.php");
-//		list.add("http://" + "zx0734.com         ".trim() + "/register.php");
-//		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+		// list.add("http://" + "i.phonc.com        ".trim() + "/register.php");
+		// list.add("http://" + "zx0734.com         ".trim() + "/register.php");
+		// list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
 		for (String string : list) {
 			System.out.println(string);
 		}
@@ -687,7 +687,7 @@ public class Register {
 		for (int inds = 0; inds < lists.size(); inds++) {
 			fList.add(pool.submit(new Register.ReadRegister(lists, Integer.valueOf(inds), arryLists.get(inds))));
 		}
-		
+
 		for (Future<String> future : fList) {
 			System.out.println(future);
 		}
@@ -717,7 +717,7 @@ public class Register {
 		@Override
 		public String call() throws Exception {
 			Register register = new Register();
-			return register.registerList(this.registersList, this.URLS.get(this.index), this.index);
+			return register.registerList(this.registersList, this.URLS, this.index);
 		}
 
 	}
