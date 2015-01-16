@@ -199,15 +199,22 @@ public class Register {
 					System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
 					return invcode;
 				} else {
-					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() + dateformat.format(new Date()));
+					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() +" "+ url + dateformat.format(new Date()));
 				}
-				Thread.sleep(400);
 			} catch (ClientProtocolException cle) {
 				System.out.println("客户端《----------》浏览器异常");
-			} catch (InterruptedException e) {
-				System.out.println("线程有异常");
-			} catch (IOException e) {
+				try {
+					Thread.sleep(1000);
+					Thread.yield();
+				} catch (InterruptedException e1) {
+				}
+			} catch  (IOException e) {
 				System.out.println("IO有异常了。");
+				try {
+					Thread.sleep(1000);
+					Thread.yield();
+				} catch (InterruptedException e1) {
+				}
 			}
 		}
 		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
@@ -511,9 +518,9 @@ public class Register {
 	 *            隐藏字符
 	 * @return
 	 */
-	public Collection<String> sortAndHidOneChar(String invcode, String charValue) {
+	public List<String> sortAndHidOneChar(String invcode, String charValue) {
 		Collection<String> replacelist = new HashSet<String>();
-		Collection<String> allSet = new HashSet<String>();
+		List<String> allSet = new ArrayList<String>();
 		replacelist = hideOneChar(invcode, charValue);
 		for (String list : replacelist) {
 			String[] datas = list.split(" ");
@@ -610,36 +617,36 @@ public class Register {
 		List<String> list = new ArrayList<String>();
 		list.add("http://" + "x.nh50.com         ".trim() + "/register.php");
 		list.add("http://" + "wo.yao.cl          ".trim() + "/register.php");
-		list.add("http://" + "u.lovecaoliu.pw    ".trim() + "/register.php");
-		list.add("http://" + "bb.69.mu           ".trim() + "/register.php");
+		list.add("http://" + "clcl.ch            ".trim() + "/register.php");
+//		list.add("http://" + "bb.69.mu           ".trim() + "/register.php");
 		list.add("http://" + "no.fzmov.com       ".trim() + "/register.php");
-		list.add("http://" + "1024.ns02.biz      ".trim() + "/register.php");
-		list.add("http://" + "cl.cf.gs           ".trim() + "/register.php");
-		list.add("http://" + "5.yao.cl           ".trim() + "/register.php");
+//		list.add("http://" + "1024.ns02.biz      ".trim() + "/register.php");
+//		list.add("http://" + "cl.cf.gs           ".trim() + "/register.php");
+//		list.add("http://" + "5.yao.cl           ".trim() + "/register.php");
 		list.add("http://" + "10240.tk           ".trim() + "/register.php");
-		list.add("http://" + "cl.yyq.im          ".trim() + "/register.php");
-		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
-		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
-		list.add("http://" + "zlvc.net           ".trim() + "/register.php");
-		list.add("http://" + "cl.gmf.cl          ".trim() + "/register.php");
-		list.add("http://" + "1024.now.im        ".trim() + "/register.php");
-		list.add("http://" + "re.aemxs.com       ".trim() + "/register.php");
+//		list.add("http://" + "cl.yyq.im          ".trim() + "/register.php");
+//		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+//		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+//		list.add("http://" + "zlvc.net           ".trim() + "/register.php");
+//		list.add("http://" + "cl.gmf.cl          ".trim() + "/register.php");
+//		list.add("http://" + "1024.now.im        ".trim() + "/register.php");
+//		list.add("http://" + "re.aemxs.com       ".trim() + "/register.php");
 		list.add("http://" + "wazh.uni.me        ".trim() + "/register.php");
-		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+//		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
 		list.add("http://" + "www.gfw74.tk       ".trim() + "/register.php");
 		list.add("http://" + "wo.clsq1024.pw     ".trim() + "/register.php");
 		list.add("http://" + "www.xiaocao.in     ".trim() + "/register.php");
-		list.add("http://" + "caoliuwang.info    ".trim() + "/register.php");
+//		list.add("http://" + "caoliuwang.info    ".trim() + "/register.php");
 		list.add("http://" + "cl.591mn.com       ".trim() + "/register.php");
 		list.add("http://" + "cl.org.ru          ".trim() + "/register.php");
-		list.add("http://" + "1025.tv            ".trim() + "/register.php");
-		list.add("http://" + "1025.la            ".trim() + "/register.php");
-		list.add("http://" + "1025.me            ".trim() + "/register.php");
+//		list.add("http://" + "1025.tv            ".trim() + "/register.php");
+//		list.add("http://" + "1025.la            ".trim() + "/register.php");
+//		list.add("http://" + "1025.me            ".trim() + "/register.php");
 		list.add("http://" + "1025.xyz           ".trim() + "/register.php");
 		list.add("http://" + "woge.xyz           ".trim() + "/register.php");
-		list.add("http://" + "i.phonc.com        ".trim() + "/register.php");
-		list.add("http://" + "zx0734.com         ".trim() + "/register.php");
-		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+//		list.add("http://" + "i.phonc.com        ".trim() + "/register.php");
+//		list.add("http://" + "zx0734.com         ".trim() + "/register.php");
+//		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
 		for (String string : list) {
 			System.out.println(string);
 		}
@@ -650,7 +657,7 @@ public class Register {
 		List<List<String>> arryLists = new ArrayList<List<String>>();
 		List<String> childList = null;
 		List<String> lists = this.getList();
-		List<String> collection = this.sortAndHidTwoString("12ae @542 87@0 3546", "@");
+		List<String> collection = this.sortAndHidOneChar("12ae 6542 87@0 3546", "@");
 		System.out.println(collection.size());
 		int length = collection.size() / lists.size();
 		System.out.println(length);
