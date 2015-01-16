@@ -57,11 +57,11 @@ public class Register {
 	private final String[] numbers = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4" };
 
 	public static void main(String[] args) {
-		Register register = new Register();
+		CopyOfRegister register = new CopyOfRegister();
 		Collection<String> lists = null;
 		lists = register.sortAndHidTwoStringWithOneCharAndOneNumber("af9d @8e6 5d@0 0900", "@");
 
-		register.sortAndHidTwoStringWithOneCharAndOneNumber("9a@a d9a5 7c@0 2dd3", "@");
+		register.sortAndHidTwoStringWithOneCharAndOneNumber("3@f0 @24c a14c 829f", "@");
 		register.registerList(lists);
 		// System.out.println(lists);
 		// System.out.println(lists.size());
@@ -171,10 +171,10 @@ public class Register {
 	 */
 	public UrlEncodedFormEntity setPatams(String invcode) throws ClientProtocolException, IOException {
 		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-		nvps.add(new BasicNameValuePair("regname", "天地壹号"));
+		nvps.add(new BasicNameValuePair("regname", "天字壹号"));
 		nvps.add(new BasicNameValuePair("regpwd", "zhao5487102"));
 		nvps.add(new BasicNameValuePair("regpwdrepeat", "zhao5487102"));
-		nvps.add(new BasicNameValuePair("regemail", "zcc102@163.com"));
+		nvps.add(new BasicNameValuePair("regemail", "zhaoccn@gmail.com"));
 		nvps.add(new BasicNameValuePair("invcode", invcode)); // 邀请码
 		nvps.add(new BasicNameValuePair("forward", "")); // 不变
 		nvps.add(new BasicNameValuePair("step", "2")); // 不变
