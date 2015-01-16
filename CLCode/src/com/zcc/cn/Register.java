@@ -5,12 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -63,7 +60,7 @@ public class Register {
 
 	public static void main(String[] args) {
 		Register register = new Register();
-		// Collection<String> lists = null;
+		// List<String> lists = null;
 		// lists =
 		// register.sortAndHidTwoStringWithOneCharAndOneNumber("af9d @8e6 5d@0 0900",
 		// "@");
@@ -202,7 +199,7 @@ public class Register {
 					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() + " " + url.get(index) + "  " + dateformat.format(new Date()));
 					list.remove(invcode);
 				}
-				Thread.sleep(400);
+				Thread.sleep(500);
 			} catch (ClientProtocolException cle) {
 				System.out.println("客户端《----------》浏览器异常");
 			} catch (IOException e) {
@@ -251,8 +248,8 @@ public class Register {
 	 * @param some
 	 *            要加的数字
 	 */
-	public Collection<String> numberAddsomeGetLists(String invcode, int some) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> numberAddsomeGetLists(String invcode, int some) {
+		List<String> invcodeSet = new ArrayList<String>();
 		char[] charArray = invcode.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {
 			try {
@@ -278,8 +275,8 @@ public class Register {
 	 *            要加的数字
 	 * @return 注册码数组
 	 */
-	public Collection<String> charAddsomeGetLists(String invcode, int some) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> charAddsomeGetLists(String invcode, int some) {
+		List<String> invcodeSet = new ArrayList<String>();
 		char[] charArray = invcode.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {
 			try {
@@ -349,8 +346,8 @@ public class Register {
 	 *            源字符
 	 * @return
 	 */
-	public Collection<String> hideOneChar(String invcode, String charValue) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> hideOneChar(String invcode, String charValue) {
+		List<String> invcodeSet = new ArrayList<String>();
 		for (int i = 0; i < chars.length; i++) {
 			invcodeSet.add(invcode.replaceFirst(charValue, chars[i]));
 		}
@@ -366,8 +363,8 @@ public class Register {
 	 *            源字符
 	 * @return
 	 */
-	public Collection<String> hideOneNumber(String invcode, String charValue) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> hideOneNumber(String invcode, String charValue) {
+		List<String> invcodeSet = new ArrayList<String>();
 		for (int i = 0; i < numbers.length; i++) {
 			invcodeSet.add(invcode.replaceFirst(charValue, numbers[i]));
 		}
@@ -383,8 +380,8 @@ public class Register {
 	 *            源字符
 	 * @return
 	 */
-	public Collection<String> hideOneNumberOrChar(String invcode, String charValue) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> hideOneNumberOrChar(String invcode, String charValue) {
+		List<String> invcodeSet = new ArrayList<String>();
 		for (int i = 0; i < allChars.length; i++) {
 			invcodeSet.add(invcode.replaceFirst(charValue, allChars[i]));
 		}
@@ -400,8 +397,8 @@ public class Register {
 	 *            源字符
 	 * @return
 	 */
-	public Collection<String> hideTwoNumber(String invcode, String charValue) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> hideTwoNumber(String invcode, String charValue) {
+		List<String> invcodeSet = new ArrayList<String>();
 		for (int index = 0; index < numbers.length; index++) {
 			for (int indextwo = 0; indextwo < numbers.length; indextwo++) {
 				invcodeSet.add(invcode.replaceFirst(charValue, numbers[index]).replaceFirst(charValue, numbers[indextwo]));
@@ -419,8 +416,8 @@ public class Register {
 	 *            源字符
 	 * @return
 	 */
-	public Collection<String> hideTwoChar(String invcode, String charValue) {
-		Collection<String> invcodeSet = new HashSet<String>();
+	public List<String> hideTwoChar(String invcode, String charValue) {
+		List<String> invcodeSet = new ArrayList<String>();
 		for (int index = 0; index < chars.length; index++) {
 			for (int indextwo = 0; indextwo < chars.length; indextwo++) {
 				invcodeSet.add(invcode.replaceFirst(charValue, chars[index]).replaceFirst(charValue, chars[indextwo]));
@@ -457,9 +454,9 @@ public class Register {
 	 *            源字符
 	 * @return
 	 */
-	public Collection<String> hideTwoStringWithOneCharAndOneNumber(String invcode, String charValue) {
+	public List<String> hideTwoStringWithOneCharAndOneNumber(String invcode, String charValue) {
 		String[] allChar = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4", "f", "a", "e", "b", "d", "c" };
-		Set<String> invcodelists = new HashSet<String>();
+		List<String> invcodelists = new ArrayList<String>();
 		for (int index = 0; index < allChar.length; index++) {
 			for (int indextwo = 0; indextwo < allChar.length; indextwo++) {
 				if ((index < 10 && indextwo >= 10) || (index >= 10 && indextwo < 10))
@@ -477,7 +474,7 @@ public class Register {
 	 * @param targets
 	 * @return
 	 */
-	public Collection<String> sort(List<String> datas, List<String> target, Collection<String> targets) {
+	public List<String> sort(List<String> datas, List<String> target, List<String> targets) {
 		if (target.size() == 4) {
 			String temp = "";
 			for (Object obj : target) {
@@ -502,10 +499,10 @@ public class Register {
 	 * @param invcode
 	 * @return
 	 */
-	public Collection<String> sortInvcode(String invcode) {
-		Collection<String> sets = new HashSet<String>();
+	public List<String> sortInvcode(String invcode) {
+		List<String> sets = new ArrayList<String>();
 		String[] datas = invcode.split(" ");
-		sets.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new HashSet<String>()));
+		sets.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
 		return sets;
 	}
 
@@ -519,12 +516,12 @@ public class Register {
 	 * @return
 	 */
 	public List<String> sortAndHidOneChar(String invcode, String charValue) {
-		Collection<String> replacelist = new HashSet<String>();
+		List<String> replacelist = new ArrayList<String>();
 		List<String> allSet = new ArrayList<String>();
 		replacelist = hideOneChar(invcode, charValue);
 		for (String list : replacelist) {
 			String[] datas = list.split(" ");
-			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new HashSet<String>()));
+			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
 		}
 		return allSet;
 	}
@@ -538,12 +535,12 @@ public class Register {
 	 *            隐藏字符
 	 * @return
 	 */
-	public Collection<String> sortAndHidOneNumber(String invcode, String charValue) {
-		Collection<String> replaceSet = hideOneNumber(invcode, charValue);
-		Collection<String> allSet = new HashSet<String>();
+	public List<String> sortAndHidOneNumber(String invcode, String charValue) {
+		List<String> replaceSet = hideOneNumber(invcode, charValue);
+		List<String> allSet = new ArrayList<String>();
 		for (String list : replaceSet) {
 			String[] datas = list.split(" ");
-			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new HashSet<String>()));
+			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
 		}
 		return allSet;
 	}
@@ -558,12 +555,12 @@ public class Register {
 	 * @return
 	 */
 	public List<String> sortAndHidOneString(String invcode, String charValue) {
-		Collection<String> replaceSet = new HashSet<String>();
+		List<String> replaceSet = new ArrayList<String>();
 		List<String> allSet = new ArrayList<String>();
 		replaceSet = hideOneNumberOrChar(invcode, charValue);
 		for (String list : replaceSet) {
 			String[] datas = list.split(" ");
-			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new HashSet<String>()));
+			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
 		}
 		return allSet;
 	}
@@ -578,12 +575,12 @@ public class Register {
 	 * @return
 	 */
 	public List<String> sortAndHidTwoString(String invcode, String charValue) {
-		Collection<String> replaceSet = new HashSet<String>();
+		List<String> replaceSet = new ArrayList<String>();
 		List<String> allSet = new ArrayList<String>();
 		replaceSet = hideTwoCharOrNumber(invcode, charValue);
 		for (String list : replaceSet) {
 			String[] datas = list.split(" ");
-			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new HashSet<String>()));
+			allSet.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
 		}
 		return allSet;
 	}
@@ -597,13 +594,13 @@ public class Register {
 	 *            隐藏字符
 	 * @return
 	 */
-	public Collection<String> sortAndHidTwoStringWithOneCharAndOneNumber(String invcode, String charValue) {
-		Collection<String> replacelist = new HashSet<String>();
-		Collection<String> alllists = new HashSet<String>();
+	public List<String> sortAndHidTwoStringWithOneCharAndOneNumber(String invcode, String charValue) {
+		List<String> replacelist = new ArrayList<String>();
+		List<String> alllists = new ArrayList<String>();
 		replacelist = hideTwoStringWithOneCharAndOneNumber(invcode, charValue);
 		for (String list : replacelist) {
 			String[] datas = list.split(" ");
-			alllists.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new HashSet<String>()));
+			alllists.addAll(sort(Arrays.asList(datas), new ArrayList<String>(), new ArrayList<String>()));
 		}
 		return alllists;
 	}
@@ -613,40 +610,40 @@ public class Register {
 	 * 
 	 * @return
 	 */
-	public List<String> getList() {
+	public List<String> getListTest() {
 		List<String> list = new ArrayList<String>();
 		list.add("http://" + "x.nh50.com         ".trim() + "/register.php");
 		list.add("http://" + "wo.yao.cl          ".trim() + "/register.php");
 		list.add("http://" + "clcl.ch            ".trim() + "/register.php");
-		// list.add("http://" + "bb.69.mu           ".trim() + "/register.php");
+		list.add("http://" + "bb.69.mu           ".trim() + "/register.php");
 		list.add("http://" + "no.fzmov.com       ".trim() + "/register.php");
-		// list.add("http://" + "1024.ns02.biz      ".trim() + "/register.php");
-		// list.add("http://" + "cl.cf.gs           ".trim() + "/register.php");
-		// list.add("http://" + "5.yao.cl           ".trim() + "/register.php");
+		list.add("http://" + "1024.ns02.biz      ".trim() + "/register.php");
+		list.add("http://" + "cl.cf.gs           ".trim() + "/register.php");
+		list.add("http://" + "5.yao.cl           ".trim() + "/register.php");
 		list.add("http://" + "10240.tk           ".trim() + "/register.php");
-		// list.add("http://" + "cl.yyq.im          ".trim() + "/register.php");
-		// list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
-		// list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
-		// list.add("http://" + "zlvc.net           ".trim() + "/register.php");
-		// list.add("http://" + "cl.gmf.cl          ".trim() + "/register.php");
-		// list.add("http://" + "1024.now.im        ".trim() + "/register.php");
-		// list.add("http://" + "re.aemxs.com       ".trim() + "/register.php");
+		list.add("http://" + "cl.yyq.im          ".trim() + "/register.php");
+		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+		list.add("http://" + "zlvc.net           ".trim() + "/register.php");
+		list.add("http://" + "cl.gmf.cl          ".trim() + "/register.php");
+		list.add("http://" + "1024.now.im        ".trim() + "/register.php");
+		list.add("http://" + "re.aemxs.com       ".trim() + "/register.php");
 		list.add("http://" + "wazh.uni.me        ".trim() + "/register.php");
-		// list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
+		list.add("http://" + "cl.mooo.info       ".trim() + "/register.php");
 		list.add("http://" + "www.gfw74.tk       ".trim() + "/register.php");
 		list.add("http://" + "wo.clsq1024.pw     ".trim() + "/register.php");
 		list.add("http://" + "www.xiaocao.in     ".trim() + "/register.php");
-		// list.add("http://" + "caoliuwang.info    ".trim() + "/register.php");
+		list.add("http://" + "caoliuwang.info    ".trim() + "/register.php");
 		list.add("http://" + "cl.591mn.com       ".trim() + "/register.php");
 		list.add("http://" + "cl.org.ru          ".trim() + "/register.php");
-		// list.add("http://" + "1025.tv            ".trim() + "/register.php");
-		// list.add("http://" + "1025.la            ".trim() + "/register.php");
-		// list.add("http://" + "1025.me            ".trim() + "/register.php");
+		list.add("http://" + "1025.tv            ".trim() + "/register.php");
+		list.add("http://" + "1025.la            ".trim() + "/register.php");
+		list.add("http://" + "1025.me            ".trim() + "/register.php");
 		list.add("http://" + "1025.xyz           ".trim() + "/register.php");
 		list.add("http://" + "woge.xyz           ".trim() + "/register.php");
-		// list.add("http://" + "i.phonc.com        ".trim() + "/register.php");
-		// list.add("http://" + "zx0734.com         ".trim() + "/register.php");
-		// list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
+		list.add("http://" + "i.phonc.com        ".trim() + "/register.php");
+		list.add("http://" + "zx0734.com         ".trim() + "/register.php");
+		list.add("http://" + "ruai.lesile.net    ".trim() + "/register.php");
 		for (String string : list) {
 			System.out.println(string);
 		}
@@ -656,18 +653,18 @@ public class Register {
 	public void findRegisterMainMethed() {
 		List<List<String>> arryLists = new ArrayList<List<String>>();
 		List<String> childList = null;
-		List<String> lists = this.getList();
-		List<String> collection = this.sortAndHidOneChar("12ae 6542 87@0 3546", "@");
-		System.out.println(collection.size());
-		int length = collection.size() / lists.size();
+		List<String> lists = this.getUrlList();
+		List<String> List = this.sortAndHidOneChar("12ae 6542 87@0 3546", "@");
+		System.out.println(List.size());
+		int length = List.size() / lists.size();
 		System.out.println(length);
 		System.out.println(lists.size());
 		for (int index = 0; index < lists.size(); index++) {
 			childList = new ArrayList<String>();
 			if (index < lists.size() - 1) {
-				childList = collection.subList(index * length, index * length + length);
+				childList = List.subList(index * length, index * length + length);
 			} else {
-				childList = collection.subList(index * length, collection.size());
+				childList = List.subList(index * length, List.size());
 			}
 			arryLists.add(childList);
 		}
@@ -692,6 +689,7 @@ public class Register {
 			System.out.println(future);
 		}
 	}
+
 
 	class ReadRegister implements Callable<String> {
 		private List<String> URLS = null;
@@ -721,5 +719,27 @@ public class Register {
 		}
 
 	}
+	
+	public List<String> getUrlList(){
+		List<String> list = new ArrayList<String>();
+		list.add("http://x.nh50.com/register.php");
+		list.add("http://wo.yao.cl/register.php");
+		list.add("http://clcl.ch/register.php");
+		list.add("http://no.fzmov.com/register.php");
+		list.add("http://10240.tk/register.php");
+		list.add("http://cl.yyq.im/register.php");
+		list.add("http://ruai.lesile.net/register.php");
+		list.add("http://wazh.uni.me/register.php");
+		list.add("http://www.gfw74.tk/register.php");
+		list.add("http://wo.clsq1024.pw/register.php");
+		list.add("http://www.xiaocao.in/register.php");
+		list.add("http://cl.591mn.com/register.php");
+		list.add("http://cl.org.ru/register.php");
+		list.add("http://woge.xyz/register.php");
+		list.add("http://ruai.lesile.net/register.php");
+		return list;
+		
+	}
+	
 
 }
