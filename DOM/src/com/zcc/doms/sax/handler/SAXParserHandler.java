@@ -1,30 +1,30 @@
 package com.zcc.doms.sax.handler;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.zcc.doms.sax.entity.Book;
+import com.zcc.doms.entity.Book;
 
 
 
 public class SAXParserHandler extends DefaultHandler {
-	String value = null;
-	Book book = null;
-	private ArrayList<Book> bookList = new ArrayList<Book>();
-	public ArrayList<Book> getBookList() {
+	private String value = null;
+	private Book book = null;
+	private List<Book> bookList = new ArrayList<Book>();
+	public List<Book> getBookList() {
 		return bookList;
 	}
 
-	int bookIndex = 0;
+	private int bookIndex = 0;
 	/**
 	 * 用来标识解析开始
 	 */
 	@Override
 	public void startDocument() throws SAXException {
-		// TODO Auto-generated method stub
 		super.startDocument();
 		System.out.println("SAX解析开始");
 	}
@@ -48,7 +48,7 @@ public class SAXParserHandler extends DefaultHandler {
 		//调用DefaultHandler类的startElement方法
 		super.startElement(uri, localName, qName, attributes);
 		if (qName.equals("book")) {
-			bookIndex++;
+			this.setBookIndex(this.getBookIndex() + 1);
 			//创建一个book对象
 			book = new Book();
 			//开始解析book元素的属性
@@ -104,11 +104,18 @@ public class SAXParserHandler extends DefaultHandler {
 	@Override
 	public void characters(char[] ch, int start, int length)
 			throws SAXException {
-		// TODO Auto-generated method stub
 		super.characters(ch, start, length);
 		value = new String(ch, start, length);
 		if (!value.trim().equals("")) {
 			System.out.println("节点值是：" + value);
 		}
+	}
+
+	public int getBookIndex() {
+		return bookIndex;
+	}
+
+	public void setBookIndex(int bookIndex) {
+		this.bookIndex = bookIndex;
 	}
 }

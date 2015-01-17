@@ -8,7 +8,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import com.zcc.doms.sax.entity.Book;
+import com.zcc.doms.entity.Book;
 import com.zcc.doms.sax.handler.SAXParserHandler;
 
 public class SAXTest {
@@ -17,14 +17,14 @@ public class SAXTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// 锟斤拷取一锟斤拷SAXParserFactory锟斤拷实锟斤拷
+		// 获取一个SAXParserFactory的实例
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-		// 通锟斤拷factory锟斤拷取SAXParser实锟斤拷
 		try {
+			// 通过factory获取SAXParser实例
 			SAXParser parser = factory.newSAXParser();
 			// 锟斤拷锟斤拷SAXParserHandler锟斤拷锟斤拷
 			SAXParserHandler handler = new SAXParserHandler();
-			parser.parse("books.xml", handler);
+			parser.parse("src/res/books.xml", handler);
 			System.out.println("~！~！~！共有" + handler.getBookList().size() + "本书");
 			for (Book book : handler.getBookList()) {
 				System.out.println(book.getId());
