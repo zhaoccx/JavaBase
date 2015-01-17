@@ -1,6 +1,8 @@
 package com.zcc.cn;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -133,11 +135,11 @@ public class Register {
 				if (!source.contains("邀請碼錯誤") && !source.contains("刷新不要快於 2 秒")) {
 					System.out.println(source);
 					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
-					System.err.println("成功注册,注册码为：" + invcode);
-					System.err.println("成功注册,注册码为：" + invcode);
-					System.err.println("成功注册,注册码为：" + invcode);
-					System.err.println("成功注册,注册码为：" + invcode);
-					System.err.println("成功注册,注册码为：" + invcode);
+					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
+					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
+					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
+					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
+					System.err.println("成功注册,注册码为：" + invcode + dateformat.format(new Date()));
 					end = Calendar.getInstance();
 					System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
 					System.exit(0);
@@ -155,13 +157,6 @@ public class Register {
 			}
 		}
 		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
-		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
 		end = Calendar.getInstance();
 		System.err.println("一共用时：" + (end.getTimeInMillis() - start.getTimeInMillis()) + "（毫秒）");
 		return false;
@@ -177,16 +172,16 @@ public class Register {
 	 * @throws InterruptedException
 	 */
 	public String registerList(List<String> list, List<String> url, int index) {
-		HttpPost myPost = new HttpPost(url.get(index));
 		Calendar start = Calendar.getInstance();
 		Calendar end = null;
 		for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
 			try {
+				httpPost.setURI(new URI(url.get(index)));
 				String invcode = iterator.next();
 				HttpResponse httpResponse = null;
 				httpClient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.BEST_MATCH);
-				myPost.setEntity(setPatams(invcode.toLowerCase()));
-				httpResponse = httpClient.execute(myPost);
+				httpPost.setEntity(setPatams(invcode.toLowerCase()));
+				httpResponse = httpClient.execute(httpPost);
 				HttpEntity entity = httpResponse.getEntity();
 				String source = new String(EntityUtils.toString(entity).getBytes("iso-8859-1"), "gbk");
 				if (!source.contains("邀請碼錯誤") && !source.contains("刷新不要快於 2 秒")) {
@@ -199,19 +194,11 @@ public class Register {
 					System.out.println(invcode + " 已经注册了，码长度为： " + invcode.length() + " " + url.get(index) + "  " + dateformat.format(new Date()));
 					list.remove(invcode);
 				}
-				Thread.sleep(500);
 			} catch (ClientProtocolException cle) {
 				System.out.println("客户端《----------》浏览器异常");
 			} catch (IOException e) {
 				System.out.println("IO有异常了。");
-				if (index == url.size() - 1) {
-					index = 0;
-				} else {
-					index++;
-				}
-				return registerList(list, url, index);
-			} catch (InterruptedException e) {
-				System.err.println("线程死了。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。");
+			} catch (URISyntaxException e) {
 			}
 		}
 		System.err.println("所有的都已经注册了" + dateformat.format(new Date()));
@@ -233,7 +220,7 @@ public class Register {
 		nvps.add(new BasicNameValuePair("regname", "天字壹号"));
 		nvps.add(new BasicNameValuePair("regpwd", "zhao5487102"));
 		nvps.add(new BasicNameValuePair("regpwdrepeat", "zhao5487102"));
-		nvps.add(new BasicNameValuePair("regemail", "zhaoccn@gmail.com"));
+		nvps.add(new BasicNameValuePair("regemail", "zcc102@163.com"));
 		nvps.add(new BasicNameValuePair("invcode", invcode)); // 邀请码
 		nvps.add(new BasicNameValuePair("forward", "")); // 不变
 		nvps.add(new BasicNameValuePair("step", "2")); // 不变
@@ -654,7 +641,7 @@ public class Register {
 		List<List<String>> arryLists = new ArrayList<List<String>>();
 		List<String> childList = null;
 		List<String> lists = this.getUrlList();
-		List<String> List = this.sortAndHidOneChar("12ae 6542 87@0 3546", "@");
+		List<String> List = this.sortAndHidTwoStringWithOneCharAndOneNumber("2@11 c@dc 62f7 0b2f", "@");
 		System.out.println(List.size());
 		int length = List.size() / lists.size();
 		System.out.println(length);
@@ -690,11 +677,11 @@ public class Register {
 		}
 	}
 
-
 	class ReadRegister implements Callable<String> {
 		private List<String> URLS = null;
 		private Integer index = null;
 		private List<String> registersList = null;
+		private String retString = null;
 
 		/**
 		 * @param lists
@@ -715,12 +702,13 @@ public class Register {
 		@Override
 		public String call() throws Exception {
 			Register register = new Register();
-			return register.registerList(this.registersList, this.URLS, this.index);
+			this.retString = register.registerList(this.registersList, this.URLS, this.index);
+			return this.retString;
 		}
 
 	}
-	
-	public List<String> getUrlList(){
+
+	public List<String> getUrlList() {
 		List<String> list = new ArrayList<String>();
 		list.add("http://x.nh50.com/register.php");
 		list.add("http://wo.yao.cl/register.php");
@@ -738,8 +726,7 @@ public class Register {
 		list.add("http://woge.xyz/register.php");
 		list.add("http://ruai.lesile.net/register.php");
 		return list;
-		
+
 	}
-	
 
 }
