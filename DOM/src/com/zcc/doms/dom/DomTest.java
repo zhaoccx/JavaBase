@@ -13,14 +13,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class DomTestOne {
+public class DomTest {
 
 	public static void main(String[] args) {
 		//创建一个DocumentBuilderFactory的对象
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		//创建一个DocumentBuilder的对象
 		try {
-			//创建DocumentBuilder对象
+			//创建一个DocumentBuilder的对象
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			//通过DocumentBuilder对象的parser方法加载books.xml文件到当前项目下
 			Document document = db.parse("src/res/books.xml");
