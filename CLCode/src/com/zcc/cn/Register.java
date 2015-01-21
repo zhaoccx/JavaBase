@@ -50,29 +50,19 @@ public class Register {
 	/**
 	 * 所有字符数组
 	 */
-	private final String[] allChars = new String[] { "0", "f", "1", "e", "2", "d", "3", "c", "4", "b", "5", "a", "6", "9", "7", "8" };
+	private final String[] allChars = new String[] { "8", "7", "9", "6", "a", "5", "b", "4", "c", "3", "d", "2", "e", "1", "f", "0" };
 	/**
 	 * 字母数组
 	 */
-	private final String[] chars = new String[] { "f", "a", "b", "e", "c", "d" };
+	private final String[] chars = new String[] { "c", "d", "b", "e", "f", "a" };
 	/**
 	 * 数字数组
 	 */
-	private final String[] numbers = new String[] { "9", "0", "8", "1", "7", "2", "6", "3", "5", "4" };
+	private final String[] numbers = new String[] { "4", "5", "3", "6", "2", "7", "1", "8", "0", "9" };
 
 	public static void main(String[] args) {
-		Register register = new Register();
-		// List<String> lists = null;
-		// lists =
-		// register.sortAndHidTwoStringWithOneCharAndOneNumber("af9d @8e6 5d@0 0900",
-		// "@");
-		//
-		// register.sortAndHidTwoStringWithOneCharAndOneNumber("3@f0 @24c a14c 829f",
-		// "@");
-		// register.registerList(lists);
-		// System.out.println(lists);
-		// System.out.println(lists.size());
-		register.findRegisterMainMethed();
+		// Register register = new Register();
+		// register.findRegisterMainMethed();
 	}
 
 	/**
