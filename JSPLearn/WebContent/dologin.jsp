@@ -5,7 +5,6 @@
   String username ="";
   String password ="";
   request.setCharacterEncoding("utf-8");//防止中文乱码
-  
   username = request.getParameter("username");
   password = request.getParameter("password");
   
