@@ -1,6 +1,5 @@
 package com.zcc.doms.dom4j;
 
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,10 +13,10 @@ import org.dom4j.io.SAXReader;
 
 import com.zcc.doms.entity.Book;
 
-
 public class DOM4JTest {
 	@SuppressWarnings("unused")
-	private static ArrayList<Book> bookList = new ArrayList<Book>();
+	private static ArrayList<Book>	bookList	= new ArrayList<Book>();
+
 	/**
 	 * @param args
 	 */
@@ -40,8 +39,7 @@ public class DOM4JTest {
 				// 获取book的属性名以及 属性值
 				List<Attribute> bookAttrs = book.attributes();
 				for (Attribute attr : bookAttrs) {
-					System.out.println("属性名：" + attr.getName() + "--属性值："
-							+ attr.getValue());
+					System.out.println("属性名：" + attr.getName() + "--属性值：" + attr.getValue());
 				}
 				Iterator itt = book.elementIterator();
 				while (itt.hasNext()) {
@@ -53,7 +51,5 @@ public class DOM4JTest {
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }

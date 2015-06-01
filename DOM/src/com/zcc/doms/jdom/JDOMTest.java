@@ -1,6 +1,5 @@
 package com.zcc.doms.jdom;
 
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,10 +16,9 @@ import org.jdom2.input.SAXBuilder;
 
 import com.zcc.doms.entity.Book;
 
-
-
 public class JDOMTest {
-	private static ArrayList<Book> booksList = new ArrayList<Book>();
+	private static ArrayList<Book>	booksList	= new ArrayList<Book>();
+
 	/**
 	 * @param args
 	 */
@@ -43,8 +41,7 @@ public class JDOMTest {
 			// 继续进行解析
 			for (Element book : bookList) {
 				Book bookEntity = new Book();
-				System.out.println("======开始解析第" + (bookList.indexOf(book) + 1)
-						+ "书======");
+				System.out.println("======开始解析第" + (bookList.indexOf(book) + 1) + "书======");
 				// 解析book的属性集合
 				List<Attribute> attrList = book.getAttributes();
 				// //知道节点下属性名称时，获取节点值
@@ -55,8 +52,7 @@ public class JDOMTest {
 					String attrName = attr.getName();
 					// 获取属性值
 					String attrValue = attr.getValue();
-					System.out.println("属性名：" + attrName + "----属性值："
-							+ attrValue);
+					System.out.println("属性名：" + attrName + "----属性值：" + attrValue);
 					if (attrName.equals("id")) {
 						bookEntity.setId(attrValue);
 					}
@@ -64,32 +60,25 @@ public class JDOMTest {
 				// 对book节点的子节点的节点名以及节点值的遍历
 				List<Element> bookChilds = book.getChildren();
 				for (Element child : bookChilds) {
-					System.out.println("节点名：" + child.getName() + "----节点值："
-							+ child.getValue());
+					System.out.println("节点名：" + child.getName() + "----节点值：" + child.getValue());
 					if (child.getName().equals("name")) {
 						bookEntity.setName(child.getValue());
-					}
-					else if (child.getName().equals("author")) {
+					} else if (child.getName().equals("author")) {
 						bookEntity.setAuthor(child.getValue());
-					}
-					else if (child.getName().equals("year")) {
+					} else if (child.getName().equals("year")) {
 						bookEntity.setYear(child.getValue());
-					}
-					else if (child.getName().equals("price")) {
+					} else if (child.getName().equals("price")) {
 						bookEntity.setPrice(child.getValue());
-					}
-					else if (child.getName().equals("language")) {
+					} else if (child.getName().equals("language")) {
 						bookEntity.setLanguage(child.getValue());
 					}
 				}
-				System.out.println("======结束解析第" + (bookList.indexOf(book) + 1)
-						+ "书======");
+				System.out.println("======结束解析第" + (bookList.indexOf(book) + 1) + "书======");
 				booksList.add(bookEntity);
 				bookEntity = null;
 				System.out.println(booksList.size());
 				System.out.println(booksList.get(0).getId());
 				System.out.println(booksList.get(0).getName());
-				
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -99,5 +88,4 @@ public class JDOMTest {
 			e.printStackTrace();
 		}
 	}
-
 }

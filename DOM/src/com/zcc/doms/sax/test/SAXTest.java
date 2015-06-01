@@ -12,7 +12,6 @@ import com.zcc.doms.entity.Book;
 import com.zcc.doms.sax.handler.SAXParserHandler;
 
 public class SAXTest {
-
 	/**
 	 * @param args
 	 */
@@ -46,5 +45,4 @@ public class SAXTest {
 			e.printStackTrace();
 		}
 	}
-
 }
