@@ -7,4 +7,7 @@ public class Ctd {
 		System.out.println("my");
 		System.out.println("ok");
 	}
+
+	public void getBean(String strs) {
+	}
 }
