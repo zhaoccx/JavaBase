@@ -49,6 +49,7 @@ public class DomTest {
 				// 通过getAttribute("id")方法获取属性值
 				String attrValue = books.getAttribute("id");
 				System.out.println("id属性的属性值为" + attrValue);
+
 				// 解析book节点的子节点
 				NodeList childNodes = book.getChildNodes();
 				// 遍历childNodes获取每个节点的节点名和节点值
