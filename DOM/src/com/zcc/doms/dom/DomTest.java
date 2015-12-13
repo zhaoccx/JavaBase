@@ -67,12 +67,8 @@ public class DomTest {
 				System.out.println("======================结束遍历第" + (i + 1) + "本书的内容=================");
 			}
 		} catch (ParserConfigurationException e) {
-			System.out.println("IO异常了。");
-			System.out.println("IO异常了。");
-			System.out.println("IO异常了。不能每天这样吧");
 			e.printStackTrace();
 		} catch (SAXException e) {
-			System.out.println("IO异常了。这个强推上去还可以吧，");
 			e.printStackTrace();
 		} catch (IOException e) {
 			System.out.println("IO异常了。");
