@@ -70,7 +70,7 @@ public class DomTest {
 			System.out.println("IO异常了。");
 			e.printStackTrace();
 		} catch (SAXException e) {
-			System.out.println("IO异常了。");
+			System.out.println("IO异常了。这个强推上去还可以吧，");
 			e.printStackTrace();
 		} catch (IOException e) {
 			System.out.println("IO异常了。");
