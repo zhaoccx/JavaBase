@@ -68,6 +68,8 @@ public class DomTest {
 			}
 		} catch (ParserConfigurationException e) {
 			System.out.println("IO异常了。");
+			System.out.println("IO异常了。");
+			System.out.println("IO异常了。不能每天这样吧");
 			e.printStackTrace();
 		} catch (SAXException e) {
 			System.out.println("IO异常了。这个强推上去还可以吧，");
