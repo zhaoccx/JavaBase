@@ -32,7 +32,33 @@ public class BubbleSort {
 		}
 	}
 
+	public BubbleSort(int[] arrays) {
+
+		int temp = 0;
+		for (int i = 0; i < arrays.length - 1; i++) {
+			for (int j = 0; j < arrays.length - 1 - i; j++) {
+				if (arrays[j] > arrays[j + 1]) {
+					temp = arrays[j];
+					arrays[j] = arrays[j + 1];
+					arrays[j + 1] = temp;
+				}
+			}
+
+			for (int tep = 0; tep < arrays.length; tep++) {
+				System.out.print(arrays[tep] + "\t");
+			}
+			System.out.println();
+		}
+		System.out.println("**************************");
+
+		for (int i = 0; i < arrays.length; i++) {
+			System.out.print(arrays[i] + "\t");
+		}
+
+	}
+
 	public static void main(String[] args) {
-		new BubbleSort();
+		int arrays[] = { 93, 49, 56, 17, 18, 23, 22 };
+		new BubbleSort(arrays);
 	}
 }
